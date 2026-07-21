@@ -15,7 +15,7 @@ const PRODUCTS: Product[] = [
     id: 'bot_standard',
     name: 'Orca6™ — Trial License',
     description: 'We will provide a pre-configured demo account for you to test and verify the Orca6™ execution logic firsthand.',
-    price: 600,
+    price: 1499,
     currency: 'INR',
     badge: 'Popular Trial',
     type: 'bot',
@@ -32,7 +32,7 @@ const PRODUCTS: Product[] = [
     id: 'bot_premium',
     name: 'Orca6™ — Premium VM Bundle',
     description: 'Full hands-off automated trading system running on Orca6™ logic, hosted on a dedicated low-latency server.',
-    price: 1499,
+    price: 4999,
     currency: 'INR',
     badge: 'VIP Elite',
     type: 'bundle',
@@ -145,7 +145,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                     </span>
                     <div className="text-right">
                       <span className={`text-2xl sm:text-3xl font-black font-title tracking-tight ${isPremium ? 'text-emerald-600' : 'text-slate-900'}`}>
-                        ₹{prod.price.toLocaleString('en-IN')} INR
+                        ₹{prod.price.toLocaleString('en-IN')}
                       </span>
                       <span className="text-[10px] font-bold block text-slate-500 mt-1">
                         International: ${(prod.price / 85).toFixed(2)} USD
@@ -200,6 +200,32 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
             </span>
           </div>
         ))}
+      </motion.div>
+
+      {/* FAQ Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="mt-12 rounded-[24px] border border-white/60 p-8 sm:p-10 bg-white/60 backdrop-blur-xl shadow-sm text-left max-w-4xl mx-auto"
+      >
+        <h3 className="text-xl font-black font-title uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-2">
+          <span>❓</span> Frequently Asked Questions
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div>
+            <h4 className="font-bold text-slate-900 mb-1">What is the minimum capital required to run Orca6?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">$500 USD minimum.</p>
+          </div>
+          <div>
+            <h4 className="font-bold text-slate-900 mb-1">Do I need coding experience?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. Our team handles 100% of the technical setup.</p>
+          </div>
+          <div>
+            <h4 className="font-bold text-slate-900 mb-1">How fast is the execution?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms via Jumpstreet API.</p>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

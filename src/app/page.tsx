@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ShieldCheck, Terminal, TrendingUp, Radio, ExternalLink,
   FileCheck, Clock, Sliders, ShoppingCart, Menu, X,
-  MessageSquare, Server, ChevronUp, Phone
+  MessageSquare, Server, ChevronUp
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -191,11 +191,11 @@ function AppContent() {
                   Jumpstreet
                 </span>
                 <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest hidden md:inline bg-blue-50 text-blue-700 border border-blue-100 shadow-inner">
-                  M&amp;S Venture
+                  Mangalik &amp; Sons Ventures
                 </span>
               </div>
               <p className="text-[10px] font-bold tracking-wider uppercase text-slate-500 group-hover:text-blue-600 transition-colors">
-                Mangalik &amp; Sons Venture Ltd.
+                Mangalik &amp; Sons Ventures
               </p>
             </div>
           </div>
@@ -242,13 +242,7 @@ function AppContent() {
                 <span>{walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}</span>
               </div>
             )}
-            <a
-              href="tel:+919897577007"
-              className="hidden sm:flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase px-4 py-2.5 rounded-xl transition-all border border-blue-200 text-blue-600 bg-blue-50 hover:bg-blue-100 shadow-sm"
-            >
-              <Phone size={14} className="animate-pulse" />
-              <span>+91 98975 77 007</span>
-            </a>
+
             <Link
               href="https://ajainx1.github.io/portfolio"
               className="hidden lg:flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase px-5 py-2.5 rounded-xl transition-all border border-black/5 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 group shadow-sm bg-white/50"
@@ -323,7 +317,7 @@ function AppContent() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] uppercase mb-6 text-slate-900 font-title">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-600 drop-shadow-sm">Apex Algorithmic Trading</span>{' '}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-600 drop-shadow-sm">Apex Algorithmic Execution</span>{' '}
                 <span className="opacity-90">— Powered by</span>{' '}
                 <span className="text-emerald-600 drop-shadow-sm">Orca6™</span>
               </h1>
@@ -536,9 +530,8 @@ function AppContent() {
                Corporate Overview
             </h3>
             <div className="space-y-4 text-sm leading-relaxed text-slate-600 font-medium">
-              <p>
-                <strong className="text-slate-900 font-bold">Jumpstreet</strong> is a premier tech and hardware distribution entity under{' '}
-                <strong className="text-slate-900 font-bold">A Mangalik and Sons Ventures Limited</strong>.
+              <p className="text-xs sm:text-sm font-medium leading-relaxed max-w-sm mt-4 text-slate-500">
+                Operating high-frequency automated execution terminals. A division of <strong className="text-slate-900 font-bold">Mangalik & Sons Ventures</strong>.
               </p>
               <p>
                 We specialize in FPGA-accelerated latency-critical trading utilities (the{' '}
@@ -563,8 +556,6 @@ function AppContent() {
               </div>
             </div>
           </motion.div>
-
-          {/* Visit Stats removed for UX */}
 
           {/* Help Desk */}
           <motion.div 
@@ -596,10 +587,10 @@ function AppContent() {
       {/* ── Footer ── */}
       <footer className="border-t border-black/5 py-12 px-4 text-center text-xs mt-auto relative z-10 bg-slate-100/50 backdrop-blur-md">
         <div className="max-w-7xl mx-auto space-y-6">
-          <p className="font-black uppercase tracking-[0.2em] text-[11px] text-slate-900 font-title">
-            Jumpstreet • A Mangalik and Sons Ventures Limited © 2026. All rights reserved.
-          </p>
-          <p className="font-bold text-emerald-700 tracking-wider">Orca6™ — Intelligent. Strategic. Apex.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+            <span>Jumpstreet • Mangalik & Sons Ventures © 2026. All rights reserved.</span>
+            <span className="text-emerald-700 tracking-wider">Orca6™ — Intelligent. Strategic. Apex.</span>
+          </div>
           <p className="max-w-2xl mx-auto text-[11px] leading-relaxed text-slate-500 font-medium">
             Jumpstreet is a technology distribution venture. Trading signals are for backtesting and analytical simulation.
             We do not provide personalised financial advice. *Prices exclude GST. International payments via Stripe/Razorpay. <br/>

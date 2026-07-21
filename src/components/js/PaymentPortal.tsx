@@ -173,8 +173,8 @@ export default function PaymentPortal({
             <Shield size={22} className="text-blue-600" />
             Verification Portal
           </h3>
-          <p className="text-sm font-medium mt-2 text-slate-500">
-            Jumpstreet — A Mangalik and Sons Venture Limited
+          <p className="text-[10px] font-bold text-slate-400 tracking-widest mt-6 pb-2 border-b border-black/5">
+            Jumpstreet — Mangalik & Sons Ventures
           </p>
         </div>
         <a
