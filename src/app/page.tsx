@@ -573,7 +573,9 @@ function AppContent() {
               </p>
             </div>
             <Link
-              href="https://ajainx1.github.io/portfolio#contact"
+              href="https://wa.me/919897577007"
+              target="_blank" 
+              rel="noopener noreferrer"
               className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-slate-900 text-white shadow-md hover:shadow-xl hover:bg-slate-800 hover:-translate-y-0.5 group"
             >
               <span>Speak to Developer</span>
