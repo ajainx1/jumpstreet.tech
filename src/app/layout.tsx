@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import './globals.css';
+import PWAInstallPrompt from '@/components/js/PWAInstallPrompt';
 
 export const metadata: Metadata = {
   title: 'Orca6™ — Automated Trading Platform by Jumpstreet',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased bg-[#020817] text-slate-50 overflow-x-hidden min-h-screen">
         {children}
+        <PWAInstallPrompt />
         <script
           dangerouslySetInnerHTML={{
             __html: `
