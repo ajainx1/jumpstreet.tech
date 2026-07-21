@@ -243,13 +243,7 @@ function AppContent() {
               </div>
             )}
 
-            <Link
-              href="https://ajainx1.github.io/portfolio"
-              className="hidden lg:flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase px-5 py-2.5 rounded-xl transition-all border border-black/5 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 group shadow-sm bg-white/50"
-            >
-              <span className="hidden xl:inline">Aditya Portfolio</span>
-              <ExternalLink size={14} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+
             <button
               onClick={() => setMobileMenuOpen(m => !m)}
               className="lg:hidden p-3 rounded-xl transition-all bg-slate-100 text-slate-600 border border-black/5 hover:bg-slate-200"
