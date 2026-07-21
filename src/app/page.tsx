@@ -530,27 +530,26 @@ function AppContent() {
                Corporate Overview
             </h3>
             <div className="space-y-4 text-sm leading-relaxed text-slate-600 font-medium">
-              <p className="text-xs sm:text-sm font-medium leading-relaxed max-w-sm mt-4 text-slate-500">
-                Operating high-frequency automated execution terminals. A division of <strong className="text-slate-900 font-bold">Mangalik & Sons Ventures</strong>.
+              <p>
+                High-frequency automated execution infrastructure. A technology division of <strong className="text-slate-900 font-bold">Mangalik & Sons Ventures</strong>.
               </p>
               <p>
-                We specialize in FPGA-accelerated latency-critical trading utilities (the{' '}
-                <strong className="text-slate-900 font-bold">HFT Signal Suite (Bot Fixed v4.0)</strong> indicator platform) and direct imports
-                of industrial-grade 5G routers and enterprise J-SIM setups.
+                We specialize in FPGA-accelerated, latency-critical trading utilities—delivering the{' '}
+                <strong className="text-slate-900 font-bold">Orca6™ HFT execution suite</strong>—alongside enterprise-grade 5G routing and secure J-SIM networking infrastructure.
               </p>
             </div>
             <div className="p-5 rounded-2xl border border-black/5 bg-slate-50">
-              <span className="text-[10px] font-black block uppercase tracking-widest font-title mb-4 text-slate-400">Conglomerate Assets</span>
+              <span className="text-[10px] font-black block uppercase tracking-widest font-title mb-4 text-slate-400">Operations</span>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 {[
                   { label: 'HQ', value: 'New Delhi, IN' },
-                  { label: 'Supply', value: 'Japan & China' },
+                  { label: 'Supply Chain', value: 'Japan & China' },
                   { label: 'Founded', value: '2022' },
-                  { label: 'Sector', value: 'FinTech & HW' },
+                  { label: 'Sector', value: 'FinTech & High-Frequency Hardware' },
                 ].map(item => (
-                  <div key={item.label} className="p-3 rounded-xl border border-black/5 bg-white shadow-sm hover:border-blue-200 transition-colors">
+                  <div key={item.label} className="p-3 rounded-xl border border-black/5 bg-white shadow-sm hover:border-blue-200 transition-colors flex flex-col justify-center">
                     <span className="block text-[9px] font-bold text-slate-400 mb-1 uppercase tracking-widest">{item.label}</span>
-                    <span className="font-black text-slate-900">{item.value}</span>
+                    <span className="font-black text-slate-900 leading-tight">{item.value}</span>
                   </div>
                 ))}
               </div>
