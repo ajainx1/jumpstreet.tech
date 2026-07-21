@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ShieldCheck, Terminal, TrendingUp, Radio, ExternalLink,
   FileCheck, Clock, Sliders, ShoppingCart, Menu, X,
-  MessageSquare, Server, ChevronUp
+  MessageSquare, Server, ChevronUp, Globe
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -580,6 +580,33 @@ function AppContent() {
             >
               <span>Speak to Developer</span>
               <ExternalLink size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
+
+          {/* Global Intelligence */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="rounded-[24px] border border-white/60 p-8 sm:p-10 text-center space-y-5 bg-white/60 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] mt-6"
+          >
+            <div className="w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto bg-slate-50 border border-black/5 text-blue-600 shadow-inner">
+              <Globe size={24} />
+            </div>
+            <div>
+              <h4 className="text-base font-black uppercase tracking-widest text-slate-900 font-title">World Monitor</h4>
+              <p className="text-xs mt-2 font-medium text-slate-500 leading-relaxed max-w-[200px] mx-auto">
+                Live global telemetry: conflicts, economics, and infrastructure.
+              </p>
+            </div>
+            <Link
+              href="https://www.worldmonitor.app/dashboard?zoom=1.00&view=global&timeRange=7d&layers=conflicts%2Cbases%2Chotspots%2Cnuclear%2Csanctions%2Cweather%2Ceconomic%2Cwaterways%2Coutages%2Cmilitary%2Cnatural"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-white text-slate-900 border border-black/5 shadow-sm hover:shadow-md hover:bg-slate-50 hover:-translate-y-0.5 group"
+            >
+              <span>Launch Radar</span>
+              <ExternalLink size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform text-blue-500" />
             </Link>
           </motion.div>
         </aside>
