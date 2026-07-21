@@ -1,0 +1,17 @@
+{
+  "name": "Orca6™ by Jumpstreet",
+  "short_name": "Orca6™",
+  "description": "Automated Trading Platform by Jumpstreet",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020817",
+  "theme_color": "#020817",
+  "icons": [
+    {
+      "src": "/js/favicon.ico",
+      "sizes": "192x192 512x512",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ]
+}
