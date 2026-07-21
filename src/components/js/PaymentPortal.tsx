@@ -566,7 +566,7 @@ export default function PaymentPortal({
               className={`w-full py-4 font-bold rounded-full text-xs transition-all tracking-widest uppercase flex items-center justify-center gap-3 shadow-md ${
                 isSubmitting 
                   ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-black/5' 
-                  : 'bg-slate-900 text-white hover:bg-blue-600 hover:shadow-xl cursor-pointer'
+                  : 'bg-emerald-500 text-white hover:bg-emerald-600 hover:shadow-xl cursor-pointer border-transparent'
               }`}
             >
               {isSubmitting ? (

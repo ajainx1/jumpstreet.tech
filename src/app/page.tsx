@@ -165,7 +165,7 @@ function AppContent() {
         <motion.div 
           animate={{ x: [0, -1000] }}
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-          className="flex whitespace-nowrap"
+          className="hidden md:flex whitespace-nowrap"
         >
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-3 mx-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
@@ -182,8 +182,8 @@ function AppContent() {
 
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0 group cursor-pointer" onClick={() => switchTab('store')}>
-            <div className="w-10 h-10 flex items-center justify-center font-title font-black text-lg rounded-[12px] bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all">
-              J
+            <div className="w-10 h-10 flex items-center justify-center rounded-[12px] bg-white shadow-md border border-black/5 group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all overflow-hidden">
+              <img src="/js/Orca6_Logo_3_Geometric.png" alt="Orca6 Logo" className="w-full h-full object-cover p-1" />
             </div>
             <div className="hidden sm:block">
               <div className="flex items-center gap-2">
@@ -322,10 +322,10 @@ function AppContent() {
                 <span className="text-emerald-600 drop-shadow-sm">Orca6™</span>
               </h1>
 
-              <p className="text-sm sm:text-base leading-relaxed max-w-2xl mb-6 text-slate-600 font-medium">
+              <p className="text-base sm:text-lg leading-relaxed max-w-2xl mb-8 text-slate-600 font-medium">
                 Experience fully hands-off, state-of-the-art algorithmic trading. Jumpstreet secures
                 the lowest-latency Windows Cloud VPS packages seamlessly pre-installed with our elite{' '}
-                <strong className="text-slate-900 font-bold">Orca6™</strong> trading logic, delivering instant execution directly to the markets.
+                <strong className="text-slate-900 font-black">Orca6™</strong> trading logic, delivering instant execution directly to the markets.
               </p>
 
               <div className="mb-10 p-5 rounded-2xl bg-indigo-50 border border-indigo-200 shadow-sm text-sm font-medium text-indigo-900 leading-relaxed max-w-2xl">
@@ -337,7 +337,7 @@ function AppContent() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="flex sm:grid sm:grid-cols-4 gap-4 overflow-x-auto pb-4 sm:pb-0 snap-x hide-scrollbar">
                 {[
                   { label: 'Gateway Status', value: 'Secure Live',    color: '#2563eb', pulse: true, bg: 'bg-blue-50' },
                   { label: 'Signal Latency',  value: '~1.2 ms avg',   color: '#0f172a',  pulse: false, bg: 'bg-slate-100' },
@@ -347,9 +347,9 @@ function AppContent() {
                   <motion.div
                     whileHover={{ y: -4 }}
                     key={i}
-                    className={`p-4 rounded-2xl border border-black/5 backdrop-blur-xl shadow-sm ${s.bg}`}
+                    className={`p-5 rounded-2xl border border-black/5 backdrop-blur-xl shadow-sm ${s.bg} min-w-[160px] sm:min-w-0 snap-center shrink-0`}
                   >
-                    <span className="text-[10px] font-bold block uppercase tracking-widest mb-1.5 text-slate-500">{s.label}</span>
+                    <span className="text-[10px] font-bold block uppercase tracking-widest mb-2 text-slate-500">{s.label}</span>
                     <span className="text-xs font-black flex items-center gap-2 font-title tracking-wide" style={{ color: s.color }}>
                       {s.pulse && <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0 shadow-sm" />}
                       {s.value}

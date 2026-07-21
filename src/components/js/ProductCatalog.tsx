@@ -19,7 +19,7 @@ const PRODUCTS: Product[] = [
     currency: 'INR',
     badge: 'Popular Trial',
     type: 'bot',
-    image: '/js/bot_standard.png',
+    image: '/js/Orca6_Logo_2_Terminal_Prompt.png',
     specs: [
       'Telegram, WhatsApp & Signal Webhook Alerts',
       'Minimum capital required: 500 USD',
@@ -36,7 +36,7 @@ const PRODUCTS: Product[] = [
     currency: 'INR',
     badge: 'VIP Elite',
     type: 'bundle',
-    image: '/js/bot_premium.png',
+    image: '/js/Orca6_Logo_1_Breaching_Orca.png',
     specs: [
       'Includes 1 Month Orca6™ License',
       'Minimum capital required: 500 USD',
@@ -157,10 +157,10 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                     whileTap={{ scale: 0.98 }}
                     type="button"
                     onClick={() => onSelectProduct(prod)}
-                    className={`w-full py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 cursor-pointer group/btn border shadow-sm ${
+                    className={`w-full py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 cursor-pointer group/btn shadow-sm ${
                       isPremium 
-                        ? 'bg-emerald-500 text-white border-transparent hover:bg-emerald-600 shadow-md hover:shadow-lg' 
-                        : 'bg-slate-100 text-slate-700 border-black/5 hover:bg-slate-200'
+                        ? 'bg-emerald-500 text-white border-transparent hover:bg-emerald-600 shadow-md hover:shadow-lg border' 
+                        : 'bg-transparent border-2 border-slate-200 text-slate-700 hover:border-slate-300'
                     }`}
                   >
                     <ShoppingCart size={16} />
@@ -207,23 +207,23 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="mt-12 rounded-[24px] border border-white/60 p-8 sm:p-10 bg-white/60 backdrop-blur-xl shadow-sm text-left max-w-4xl mx-auto"
+        className="mt-12 rounded-[24px] border border-white/60 p-8 sm:p-12 bg-white/60 backdrop-blur-xl shadow-sm text-left max-w-4xl mx-auto"
       >
-        <h3 className="text-xl font-black font-title uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-2">
+        <h3 className="text-xl font-black font-title uppercase tracking-widest text-slate-900 mb-8 flex items-center gap-2">
           <span>❓</span> Frequently Asked Questions
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           <div>
-            <h4 className="font-bold text-slate-900 mb-1">What is the minimum capital required to run Orca6?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">$500 USD minimum.</p>
+            <h4 className="text-lg font-bold text-slate-900 mb-2">What is the minimum capital required to run Orca6?</h4>
+            <p className="text-base text-slate-600 font-medium leading-relaxed">$500 USD minimum.</p>
           </div>
           <div>
-            <h4 className="font-bold text-slate-900 mb-1">Do I need coding experience?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. Our team handles 100% of the technical setup.</p>
+            <h4 className="text-lg font-bold text-slate-900 mb-2">Do I need coding experience?</h4>
+            <p className="text-base text-slate-600 font-medium leading-relaxed">No. Our team handles 100% of the technical setup.</p>
           </div>
           <div>
-            <h4 className="font-bold text-slate-900 mb-1">How fast is the execution?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms via Jumpstreet API.</p>
+            <h4 className="text-lg font-bold text-slate-900 mb-2">How fast is the execution?</h4>
+            <p className="text-base text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms via Jumpstreet API.</p>
           </div>
         </div>
       </motion.div>
