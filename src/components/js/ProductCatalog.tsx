@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React from 'react';
-import { Zap, ShoppingCart, ArrowRight, Radio } from 'lucide-react';
+import { Zap, ShoppingCart, ArrowRight, Radio, Server, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Product } from './types';
 import TiltWrapper from '@/components/3d/TiltWrapper';
@@ -96,35 +96,70 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                 </div>
               )}
 
-              {/* Image & Trading Background Header */}
-              <div className="h-44 sm:h-56 relative overflow-hidden flex-shrink-0 border-b border-black/10 z-10 bg-slate-900 group/img flex items-center justify-center p-4">
+              {/* Institutional Execution Telemetry Header */}
+              <div className="h-48 sm:h-56 relative overflow-hidden flex-shrink-0 border-b border-black/10 z-10 bg-slate-950 p-4 flex flex-col justify-between group/img">
+                {/* Background Chart Overlay */}
                 {prod.bgImage && (
-                  <motion.img
+                  <img
                     src={prod.bgImage}
                     alt={`${prod.name} Trading Theme`}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/img:scale-105 transition-transform duration-700 pointer-events-none"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-slate-950/50 pointer-events-none" />
-                
-                {/* Foreground Orca6 Logo */}
-                <motion.img
-                  src={prod.image}
-                  alt={prod.name}
-                  className="relative z-10 max-h-28 sm:max-h-36 w-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/90 pointer-events-none" />
 
-                <div className="absolute bottom-3 left-4 flex items-center gap-2 drop-shadow-md bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 z-20">
-                  {isHardware
-                    ? <Radio size={14} className="text-emerald-400" />
-                    : <Zap size={14} className="text-emerald-400" />}
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-200">
-                    {isHardware ? 'Hardware Redundancy' : 'Algorithmic Software'}
-                  </span>
+                {/* Header Top Bar */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-2 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>{isPremium ? 'EQUINIX LD4 SERVER NODE' : 'LIVE SIGNAL RELAY'}</span>
+                  </div>
+                  <img
+                    src={prod.image}
+                    alt={prod.name}
+                    className="h-8 w-auto object-contain drop-shadow-md opacity-90"
+                  />
+                </div>
+
+                {/* Mockup Terminal Output */}
+                <div className="relative z-10 my-auto bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl p-3 font-mono text-[10px] space-y-1.5 shadow-inner">
+                  {prod.id === 'bot_standard' ? (
+                    <>
+                      <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
+                        <span className="flex items-center gap-1.5 text-blue-400 font-bold"><Terminal size={12} /> ORCA6-SIGNAL-NODE #412</span>
+                        <span className="text-emerald-400 font-bold">LATENCY: 1.1ms</span>
+                      </div>
+                      <div className="text-emerald-300 font-bold truncate">
+                        › [SIGNAL] BUY XAUUSD @ 2650.40 | SL: 2645.10
+                      </div>
+                      <div className="text-slate-400 flex items-center justify-between text-[9px]">
+                        <span>Relay: Telegram / WhatsApp / Webhook</span>
+                        <span className="text-emerald-400 font-semibold">FILLED ✓</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
+                        <span className="flex items-center gap-1.5 text-indigo-400 font-bold"><Server size={12} /> ORCA6-VPS-SERVER #09</span>
+                        <span className="text-emerald-400 font-bold">PING: ~1.2ms</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1 text-[9px] text-slate-300">
+                        <div>• RAM: <strong className="text-white">2GB ECC Dedicated</strong></div>
+                        <div>• WATCHDOG: <strong className="text-emerald-400">ACTIVE 24/7</strong></div>
+                        <div>• REGION: <strong className="text-white">Equinix LD4</strong></div>
+                        <div>• UPTIME: <strong className="text-emerald-400">99.99% SLA</strong></div>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Header Footer Badge */}
+                <div className="relative z-10 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  <div className="flex items-center gap-1.5 text-slate-300">
+                    {isHardware ? <Radio size={12} className="text-emerald-400" /> : <Zap size={12} className="text-emerald-400" />}
+                    <span>{isHardware ? 'Hardware Redundancy' : 'Algorithmic Execution'}</span>
+                  </div>
+                  <span className="text-emerald-400 font-mono text-[9px]">⚡ INSTITUTIONAL GRADE</span>
                 </div>
               </div>
 
