@@ -298,23 +298,27 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="mt-12 rounded-[24px] border border-white/60 p-8 sm:p-12 bg-white/60 backdrop-blur-xl shadow-sm text-left max-w-4xl mx-auto"
+        className="mt-8 rounded-[28px] border border-white/60 p-8 sm:p-10 bg-white/60 backdrop-blur-xl shadow-sm text-left w-full"
       >
-        <h3 className="text-xl font-black font-title uppercase tracking-widest text-slate-900 mb-8 flex items-center gap-2">
+        <h3 className="text-lg font-black font-title uppercase tracking-widest text-slate-900 mb-8 flex items-center gap-2">
           <span>❓</span> Frequently Asked Questions
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-2">What is the minimum capital required to run Orca6?</h4>
-            <p className="text-base text-slate-600 font-medium leading-relaxed">$500 USD minimum.</p>
+            <h4 className="text-base font-bold text-slate-900 mb-2">Do I need capital to test the Orca6™ Trial?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. We provision a pre-funded demo account with credentials so you can evaluate execution logic with zero personal capital risk. Premium VM accounts support Real &amp; Prop-Firm (Funded) accounts.</p>
           </div>
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-2">Do I need coding experience?</h4>
-            <p className="text-base text-slate-600 font-medium leading-relaxed">No. Our team handles 100% of the technical setup.</p>
+            <h4 className="text-base font-bold text-slate-900 mb-2">Do I need coding or technical experience?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. Our engineering team handles 100% of the turnkey technical setup directly for you.</p>
           </div>
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-2">How fast is the execution?</h4>
-            <p className="text-base text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms via Jumpstreet API.</p>
+            <h4 className="text-base font-bold text-slate-900 mb-2">How fast is the order execution?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms hosted on dedicated Equinix LD4 nodes via Jumpstreet API.</p>
+          </div>
+          <div>
+            <h4 className="text-base font-bold text-slate-900 mb-2">Are Paytm, UPI, Cards &amp; Crypto accepted?</h4>
+            <p className="text-sm text-slate-600 font-medium leading-relaxed">Yes. We provide guided zero-loss deposit assistance across all major Indian and international payment gateways.</p>
           </div>
         </div>
       </motion.div>

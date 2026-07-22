@@ -627,9 +627,9 @@ function AppContent() {
           </p>
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-[10px] uppercase tracking-widest font-bold text-slate-400">
             {[
-              { label: 'Developer Profile', href: 'https://ajainx1.github.io/portfolio' },
-              { label: 'Primary Portal', href: 'https://ajainx1.github.io/' },
-              { label: 'Terms of Service', href: '#' },
+              { label: 'Security Operations', href: 'https://adityasec32.systems' },
+              { label: 'Primary Network Portal', href: 'https://adityasec32.systems' },
+              { label: 'Terms & Risk Governance', href: '#' },
             ].map(link => (
               <Link key={link.label} href={link.href} className="hover:text-blue-600 transition-colors">
                 {link.label}
