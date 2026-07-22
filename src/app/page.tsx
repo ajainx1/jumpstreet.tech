@@ -310,10 +310,16 @@ function AppContent() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] uppercase mb-6 text-slate-900 font-title">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-600 drop-shadow-sm">Apex Algorithmic Execution</span>{' '}
-                <span className="opacity-90">— Powered by</span>{' '}
-                <span className="text-emerald-600 drop-shadow-sm">Orca6™</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] uppercase mb-6 text-slate-900 font-title">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 drop-shadow-sm block sm:inline">
+                  Apex Algorithmic Execution
+                </span>{' '}
+                <span className="opacity-70 text-slate-500 text-2xl sm:text-3xl font-medium font-sans">
+                  — Powered by
+                </span>{' '}
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-title font-black text-2xl sm:text-4xl shadow-sm tracking-normal">
+                  Orca6™
+                </span>
               </h1>
 
               <p className="text-base sm:text-lg leading-relaxed max-w-2xl mb-8 text-slate-600 font-medium">
