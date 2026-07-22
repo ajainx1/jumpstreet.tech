@@ -82,6 +82,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
       setRamLoad(Math.floor(40 + (Math.random() * 6)));
     }, 2800);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const currentSignal = SIGNALS[signalIndex];
