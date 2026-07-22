@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Zap, ShoppingCart, ArrowRight, Radio, Server, Terminal } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Product } from './types';
 import TiltWrapper from '@/components/3d/TiltWrapper';
 
@@ -64,6 +64,28 @@ const itemVariants = {
 };
 
 export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps) {
+  const [signalIndex, setSignalIndex] = useState(0);
+  const [liveLatency, setLiveLatency] = useState('1.1ms');
+  const [ramLoad, setRamLoad] = useState(42);
+
+  const SIGNALS = [
+    { pair: 'BUY XAUUSD @ 2650.40', sl: '2645.10', tp: '2665.80', latency: '1.1ms' },
+    { pair: 'BUY BTCUSD @ 64230.10', sl: '63800', tp: '65100', latency: '0.9ms' },
+    { pair: 'SELL EURUSD @ 1.08450', sl: '1.0870', tp: '1.0800', latency: '1.2ms' },
+    { pair: 'BUY NQ1! @ 19840.25', sl: '19790', tp: '19950', latency: '0.8ms' },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSignalIndex((prev) => (prev + 1) % SIGNALS.length);
+      setLiveLatency((1.0 + (Math.random() * 0.3)).toFixed(1) + 'ms');
+      setRamLoad(Math.floor(40 + (Math.random() * 6)));
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentSignal = SIGNALS[signalIndex];
+
   return (
     <div className="space-y-6 sm:space-y-8">
       <motion.div 
@@ -122,29 +144,50 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                 </div>
 
                 {/* Mockup Terminal Output */}
-                <div className="relative z-10 my-auto bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl p-3 font-mono text-[10px] space-y-1.5 shadow-inner">
+                <div className="relative z-10 my-auto bg-black/70 backdrop-blur-xl border border-white/10 rounded-xl p-3 font-mono text-[10px] space-y-1.5 shadow-inner overflow-hidden">
+                  {/* Subtle Scan Line Laser Beam */}
+                  <motion.div
+                    animate={{ y: ['-100%', '300%'] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
+                    className="absolute inset-x-0 h-8 bg-gradient-to-b from-emerald-500/10 via-emerald-500/5 to-transparent pointer-events-none"
+                  />
+
                   {prod.id === 'bot_standard' ? (
                     <>
                       <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
                         <span className="flex items-center gap-1.5 text-blue-400 font-bold"><Terminal size={12} /> ORCA6-SIGNAL-NODE #412</span>
-                        <span className="text-emerald-400 font-bold">LATENCY: 1.1ms</span>
+                        <span className="text-emerald-400 font-bold font-mono">LATENCY: {currentSignal.latency}</span>
                       </div>
-                      <div className="text-emerald-300 font-bold truncate">
-                        › [SIGNAL] BUY XAUUSD @ 2650.40 | SL: 2645.10
+                      <div className="h-5 flex items-center overflow-hidden relative">
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={signalIndex}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="text-emerald-300 font-bold truncate absolute inset-x-0"
+                          >
+                            › [SIGNAL] {currentSignal.pair} | SL: {currentSignal.sl}
+                          </motion.div>
+                        </AnimatePresence>
                       </div>
                       <div className="text-slate-400 flex items-center justify-between text-[9px]">
                         <span>Relay: Telegram / WhatsApp / Webhook</span>
-                        <span className="text-emerald-400 font-semibold">FILLED ✓</span>
+                        <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          FILLED ✓
+                        </span>
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
                         <span className="flex items-center gap-1.5 text-indigo-400 font-bold"><Server size={12} /> ORCA6-VPS-SERVER #09</span>
-                        <span className="text-emerald-400 font-bold">PING: ~1.2ms</span>
+                        <span className="text-emerald-400 font-bold font-mono">PING: ~{liveLatency}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-1 text-[9px] text-slate-300">
-                        <div>• RAM: <strong className="text-white">2GB ECC Dedicated</strong></div>
+                        <div>• RAM: <strong className="text-white">2GB ECC ({ramLoad}%)</strong></div>
                         <div>• WATCHDOG: <strong className="text-emerald-400">ACTIVE 24/7</strong></div>
                         <div>• REGION: <strong className="text-white">Equinix LD4</strong></div>
                         <div>• UPTIME: <strong className="text-emerald-400">99.99% SLA</strong></div>
