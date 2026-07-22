@@ -554,10 +554,10 @@ function AppContent() {
               <span className="text-[10px] font-black block uppercase tracking-widest font-title mb-4 text-slate-400">Operations</span>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 {[
-                  { label: 'HQ', value: 'New Delhi, IN' },
-                  { label: 'Supply Chain', value: 'Japan & China' },
-                  { label: 'Founded', value: '2022' },
-                  { label: 'Sector', value: 'FinTech & High-Frequency Hardware' },
+                  { label: 'Corporate HQ', value: 'New Delhi, IN' },
+                  { label: 'Edge Infrastructure', value: 'Tokyo, Frankfurt & Mumbai' },
+                  { label: 'Established', value: '2022' },
+                  { label: 'Core Sector', value: 'HFT & Quant Execution' },
                 ].map(item => (
                   <div key={item.label} className="p-3 rounded-xl border border-black/5 bg-white shadow-sm hover:border-blue-200 transition-colors flex flex-col justify-center">
                     <span className="block text-[9px] font-bold text-slate-400 mb-1 uppercase tracking-widest">{item.label}</span>
