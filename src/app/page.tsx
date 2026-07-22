@@ -182,7 +182,7 @@ function AppContent() {
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0 group cursor-pointer" onClick={() => switchTab('store')}>
             <div className="w-10 h-10 flex items-center justify-center rounded-[12px] bg-white shadow-md border border-black/5 group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all overflow-hidden">
-              <img src="/js/Orca6_Logo_3_Geometric.png" alt="Orca6 Logo" className="w-full h-full object-cover p-1" />
+              <img src="/js/Orca6_Logo_1_Breaching_Orca.png" alt="Orca6 Logo" className="w-full h-full object-contain p-0.5" />
             </div>
             <div className="hidden sm:block">
               <div className="flex items-center gap-2">
