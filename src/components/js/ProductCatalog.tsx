@@ -20,6 +20,7 @@ const PRODUCTS: Product[] = [
     badge: 'Popular Trial',
     type: 'bot',
     image: '/js/Orca6_Logo_2_Terminal_Prompt.png',
+    bgImage: '/js/trial_trading_banner.jpg',
     specs: [
       'Telegram, WhatsApp & Signal Webhook Alerts',
       'Minimum capital required: 500 USD',
@@ -37,6 +38,7 @@ const PRODUCTS: Product[] = [
     badge: 'VIP Elite',
     type: 'bundle',
     image: '/js/Orca6_Logo_1_Breaching_Orca.png',
+    bgImage: '/js/premium_trading_banner.jpg',
     specs: [
       'Includes 1 Month Orca6™ License',
       'Minimum capital required: 500 USD',
@@ -94,23 +96,33 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                 </div>
               )}
 
-              {/* Image */}
-              <div className="h-36 sm:h-48 relative overflow-hidden flex-shrink-0 border-b border-black/5 z-10 bg-slate-50">
+              {/* Image & Trading Background Header */}
+              <div className="h-44 sm:h-56 relative overflow-hidden flex-shrink-0 border-b border-black/10 z-10 bg-slate-900 group/img flex items-center justify-center p-4">
+                {prod.bgImage && (
+                  <motion.img
+                    src={prod.bgImage}
+                    alt={`${prod.name} Trading Theme`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-80"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.8 }}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-slate-950/50 pointer-events-none" />
+                
+                {/* Foreground Orca6 Logo */}
                 <motion.img
                   src={prod.image}
                   alt={prod.name}
-                  className="w-full h-full object-cover"
-                  style={{ filter: 'brightness(0.95)' }}
-                  loading="lazy"
+                  className="relative z-10 max-h-28 sm:max-h-36 w-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
                   whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.3 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-4 flex items-center gap-2 drop-shadow-sm bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-black/5">
+
+                <div className="absolute bottom-3 left-4 flex items-center gap-2 drop-shadow-md bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 z-20">
                   {isHardware
-                    ? <Radio size={14} className="text-blue-600" />
-                    : <Zap size={14} className="text-blue-600" />}
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">
+                    ? <Radio size={14} className="text-emerald-400" />
+                    : <Zap size={14} className="text-emerald-400" />}
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-200">
                     {isHardware ? 'Hardware Redundancy' : 'Algorithmic Software'}
                   </span>
                 </div>

@@ -6,6 +6,7 @@ export interface Product {
   currency: 'INR' | 'USD';
   badge?: string;
   image: string;
+  bgImage?: string;
   specs?: string[];
   type: 'bot' | 'hotspot' | 'bundle';
 }
