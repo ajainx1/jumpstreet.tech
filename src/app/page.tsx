@@ -328,10 +328,12 @@ function AppContent() {
               </p>
 
               <div className="mb-10 p-5 rounded-2xl bg-indigo-50 border border-indigo-200 shadow-sm text-sm font-medium text-indigo-900 leading-relaxed max-w-2xl">
-                <strong className="text-indigo-700 flex items-center gap-2 mb-2 text-xs tracking-widest uppercase"><ShieldCheck size={16} /> VIP Client Onboarding</strong>
-                To ensure maximum performance and returns, the Orca6™ system requires a <strong>minimum trading capital of 500 USD</strong>. Our team handles the entire technical setup directly on your account—no coding or trading experience required. Simply request a trial, and we will provide a pre-configured demo account for you to evaluate the execution logic firsthand.
-                <ul className="mt-2 text-xs list-disc list-inside">
-                  <li>Dedicated 1:1 onboarding call with our team</li>
+                <strong className="text-indigo-700 flex items-center gap-2 mb-2 text-xs tracking-widest uppercase"><ShieldCheck size={16} /> VIP Client Onboarding & Zero-Risk Trial</strong>
+                For the <strong>Trial License</strong>, Jumpstreet provisions and delivers a <strong>Pre-Funded Demo Account</strong> with login credentials so you can evaluate Orca6™ execution logic with <strong>zero personal capital risk</strong>. When upgrading to the <strong>Premium VM Bundle</strong>, our engineering team handles 100% of the turnkey setup on your Real or Prop-Firm (Funding) accounts—including zero-loss deposit guidance via Paytm, UPI, Cards, or Crypto.
+                <ul className="mt-3.5 space-y-1 text-xs font-semibold text-indigo-800">
+                  <li className="flex items-center gap-2">✓ Pre-funded demo account credentials delivered instantly for Trial License</li>
+                  <li className="flex items-center gap-2">✓ Compatible with Real Accounts & Prop-Firm / Funded Accounts</li>
+                  <li className="flex items-center gap-2">✓ Dedicated 1:1 onboarding & zero-loss deposit assistance</li>
                 </ul>
               </div>
 

@@ -14,7 +14,7 @@ const PRODUCTS: Product[] = [
   {
     id: 'bot_standard',
     name: 'Orca6™ — Trial License',
-    description: 'We will provide a pre-configured demo account for you to test and verify the Orca6™ execution logic firsthand.',
+    description: 'We provide a pre-configured demo account with credentials. Zero personal capital required to test and evaluate the Orca6™ execution logic.',
     price: 1499,
     currency: 'INR',
     badge: 'Popular Trial',
@@ -22,11 +22,11 @@ const PRODUCTS: Product[] = [
     image: '/js/Orca6_Logo_2_Terminal_Prompt.png',
     bgImage: '/js/trial_trading_banner.jpg',
     specs: [
+      'Zero Personal Capital Required (Pre-Funded Demo Provided)',
+      'Instant Password & Demo Credentials Delivery',
       'Telegram, WhatsApp & Signal Webhook Alerts',
-      'Minimum capital required: 500 USD',
-      'We provide the demo account credentials',
-      'Lightning-fast trade execution to maximize profit margins',
-      '24/7 autonomous client-side running capability',
+      'Sub-Millisecond Order Execution Logic Test',
+      '24/7 Autonomous Client-Side Running Capability',
     ],
   },
   {
@@ -40,12 +40,12 @@ const PRODUCTS: Product[] = [
     image: '/js/Orca6_Logo_1_Breaching_Orca.png',
     bgImage: '/js/premium_trading_banner.jpg',
     specs: [
-      'Includes 1 Month Orca6™ License',
-      'Minimum capital required: 500 USD',
-      'Account credentials required for deployment',
-      'Pre-installed on Windows Cloud VM (2GB ECC RAM, 1 vCPU)',
-      'Jumpstreet Anti-crash execution watchdogs included',
-      'VIP onboarding — 100% setup handled by our team',
+      'Includes 1 Month Orca6™ Enterprise License',
+      'Compatible with Real Capital & Prop-Firm (Funded) Accounts',
+      'VIP Setup & Zero-Loss Deposit Guidance (Paytm, UPI, Cards)',
+      'Pre-Installed on Windows Cloud VM (2GB ECC RAM, 1 vCPU)',
+      'Jumpstreet Anti-Crash & Capital Protection Watchdogs',
+      '100% Turnkey Setup Handled by Our Engineering Team',
     ],
   }
 ];
