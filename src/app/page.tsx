@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Product, VMConfig, PaymentSubmission } from '@/components/js/types';
 import { useToast, ToastProvider } from '@/components/js/ToastContext';
 
@@ -357,24 +356,6 @@ function AppContent() {
                   </motion.div>
                 ))}
               </div>
-
-              {/* Trading Terminal Showcase Image */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="mt-12 rounded-3xl overflow-hidden border border-black/10 shadow-2xl relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
-                <Image 
-                  src="/js/orca6_terminal_ui.png" 
-                  alt="Orca6 High-Frequency Trading Terminal Interface" 
-                  width={1200} 
-                  height={800} 
-                  className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                  priority
-                />
-              </motion.div>
             </div>
           </motion.div>
 
