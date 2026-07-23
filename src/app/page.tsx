@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ShieldCheck, Terminal, TrendingUp, Radio, ExternalLink,
   FileCheck, Clock, Sliders, ShoppingCart, Menu, X,
@@ -104,9 +104,18 @@ function AppContent() {
     }
   }, []);
 
+  const tabContentRef = useRef<HTMLDivElement>(null);
+
   const switchTab = (tab: TabKey) => {
     setActiveTab(tab);
     setMobileMenuOpen(false);
+    setTimeout(() => {
+      if (tabContentRef.current) {
+        const yOffset = -90;
+        const y = tabContentRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 60);
   };
 
   const handleSelectProduct = (product: Product) => {
@@ -362,7 +371,7 @@ function AppContent() {
           </motion.div>
 
           {/* ── Tab Content ── */}
-          <div className="relative min-h-[500px]">
+          <div ref={tabContentRef} className="relative min-h-[500px] scroll-mt-24">
             <AnimatePresence mode="wait">
               
               {activeTab === 'store' && (
