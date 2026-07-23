@@ -14,6 +14,7 @@ import AlertsSimulator from '@/components/js/AlertsSimulator';
 import VmConfigurator from '@/components/js/VmConfigurator';
 import ProductCatalog from '@/components/js/ProductCatalog';
 import PaymentPortal from '@/components/js/PaymentPortal';
+import AdSenseBanner from '@/components/js/AdSenseBanner';
 
 /* ══════════════════════════════
    HOOKS
@@ -369,6 +370,9 @@ function AppContent() {
               </div>
             </div>
           </motion.div>
+
+          {/* ── Google AdSense Unit ── */}
+          <AdSenseBanner refreshKey={activeTab} />
 
           {/* ── Tab Content ── */}
           <div ref={tabContentRef} className="relative min-h-[500px] scroll-mt-24">
