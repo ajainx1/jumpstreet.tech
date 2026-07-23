@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import './globals.css';
 import PWAInstallPrompt from '@/components/js/PWAInstallPrompt';
+import TelegramVisitorLogger from '@/components/js/TelegramVisitorLogger';
 
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased bg-[#020817] text-slate-50 overflow-x-hidden min-h-screen">
         {children}
         <PWAInstallPrompt />
+        <TelegramVisitorLogger />
         <script
           dangerouslySetInnerHTML={{
             __html: `
