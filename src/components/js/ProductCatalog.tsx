@@ -68,24 +68,57 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
   const [liveLatency, setLiveLatency] = useState('1.1ms');
   const [ramLoad, setRamLoad] = useState(42);
 
-  const SIGNALS = [
-    { pair: 'BUY XAUUSD @ 2650.40', sl: '2645.10', tp: '2665.80', latency: '1.1ms' },
-    { pair: 'BUY BTCUSD @ 64230.10', sl: '63800', tp: '65100', latency: '0.9ms' },
-    { pair: 'SELL EURUSD @ 1.08450', sl: '1.0870', tp: '1.0800', latency: '1.2ms' },
-    { pair: 'BUY NQ1! @ 19840.25', sl: '19790', tp: '19950', latency: '0.8ms' },
-  ];
+  const [signals, setSignals] = useState([
+    { symbol: 'XAUUSD', action: 'BUY', price: 2748.40, sl: 2741.20, tp: 2762.80, latency: '1.1ms', rr: '1:2.0', decimals: 2 },
+    { symbol: 'BTCUSD', action: 'BUY', price: 96480.00, sl: 95850.00, tp: 97740.00, latency: '0.9ms', rr: '1:2.0', decimals: 2 },
+    { symbol: 'EURUSD', action: 'SELL', price: 1.04820, sl: 1.05150, tp: 1.04160, latency: '1.2ms', rr: '1:2.0', decimals: 5 },
+    { symbol: 'NQ1!', action: 'BUY', price: 21460.50, sl: 21390.00, tp: 21601.00, latency: '0.8ms', rr: '1:2.0', decimals: 2 },
+  ]);
 
   useEffect(() => {
+    // Live price fetch for BTCUSD from public Binance API for 100% realistic live data
+    fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.price) {
+          const btcPrice = parseFloat(data.price);
+          if (!isNaN(btcPrice) && btcPrice > 0) {
+            setSignals(prev => prev.map(s => {
+              if (s.symbol === 'BTCUSD') {
+                return {
+                  ...s,
+                  price: btcPrice,
+                  sl: parseFloat((btcPrice * 0.993).toFixed(2)),
+                  tp: parseFloat((btcPrice * 1.014).toFixed(2)),
+                };
+              }
+              return s;
+            }));
+          }
+        }
+      })
+      .catch(() => {});
+
     const interval = setInterval(() => {
-      setSignalIndex((prev) => (prev + 1) % SIGNALS.length);
+      setSignalIndex((prev) => (prev + 1) % 4);
       setLiveLatency((1.0 + (Math.random() * 0.3)).toFixed(1) + 'ms');
       setRamLoad(Math.floor(40 + (Math.random() * 6)));
+
+      // Micro-tick price fluctuation to simulate real-time market price motion
+      setSignals(prev => prev.map(s => {
+        const delta = (Math.random() - 0.48) * (s.price * 0.0006);
+        const newPrice = parseFloat((s.price + delta).toFixed(s.decimals));
+        return {
+          ...s,
+          price: newPrice,
+        };
+      }));
     }, 2800);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const currentSignal = SIGNALS[signalIndex];
+  const currentSignal = signals[signalIndex];
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -162,14 +195,14 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                       <div className="h-5 flex items-center overflow-hidden relative">
                         <AnimatePresence mode="wait">
                           <motion.div
-                            key={signalIndex}
+                            key={`${signalIndex}-${currentSignal.price}`}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
                             className="text-emerald-300 font-bold truncate absolute inset-x-0"
                           >
-                            › [SIGNAL] {currentSignal.pair} | SL: {currentSignal.sl}
+                            › [SIGNAL] {currentSignal.action} {currentSignal.symbol} @ {currentSignal.price.toLocaleString(undefined, { minimumFractionDigits: currentSignal.decimals, maximumFractionDigits: currentSignal.decimals })} | SL: {currentSignal.sl.toLocaleString(undefined, { minimumFractionDigits: currentSignal.decimals })}
                           </motion.div>
                         </AnimatePresence>
                       </div>
