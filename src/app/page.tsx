@@ -159,57 +159,57 @@ function AppContent() {
   const hasPendingCheckout = !!(selectedProduct || customVmConfig);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans relative text-slate-900 bg-slate-50 overflow-x-hidden selection:bg-blue-500 selection:text-white transition-colors duration-500">
+    <div className="min-h-screen flex flex-col font-sans relative text-slate-100 bg-[#020817] overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-500">
       {/* ── Dynamic iCloud Mesh Background ── */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-slate-50" />
-        <motion.div animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-60 bg-blue-200 mix-blend-multiply" />
-        <motion.div animate={{ x: [0, -50, 0], y: [0, -30, 0], scale: [1, 1.2, 1] }} transition={{ duration: 35, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[130px] opacity-50 bg-indigo-200 mix-blend-multiply" />
-        <div className="absolute inset-0 backdrop-blur-[80px]" />
+        <div className="absolute inset-0 bg-[#020817]" />
+        <motion.div animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-25 bg-emerald-600 mix-blend-screen" />
+        <motion.div animate={{ x: [0, -50, 0], y: [0, -30, 0], scale: [1, 1.2, 1] }} transition={{ duration: 35, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[150px] opacity-20 bg-cyan-600 mix-blend-screen" />
+        <div className="absolute inset-0 backdrop-blur-[90px]" />
       </div>
 
       {/* ── Ticker bar ── */}
-      <div className="relative z-10 py-2 border-b border-black/5 bg-white/60 backdrop-blur-md overflow-hidden">
+      <div className="relative z-10 py-2 border-b border-white/10 bg-slate-950/80 backdrop-blur-md overflow-hidden">
         <motion.div 
           animate={{ x: [0, -1000] }}
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
           className="hidden md:flex whitespace-nowrap"
         >
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-3 mx-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+            <span key={i} className="inline-flex items-center gap-3 mx-8 text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400">
               {item}
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-sm" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-sm animate-pulse" />
             </span>
           ))}
         </motion.div>
       </div>
 
       {/* ── Sticky Header ── */}
-      <header className="sticky top-0 z-40 border-b border-black/5 px-4 sm:px-6 py-3 bg-white/70 backdrop-blur-2xl shadow-sm">
+      <header className="sticky top-0 z-40 border-b border-white/10 px-4 sm:px-6 py-3 bg-slate-950/80 backdrop-blur-2xl shadow-xl">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
 
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0 group cursor-pointer" onClick={() => switchTab('store')}>
-            <div className="w-10 h-10 flex items-center justify-center rounded-[12px] bg-white shadow-md border border-black/5 group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all overflow-hidden">
+            <div className="w-10 h-10 flex items-center justify-center rounded-[12px] bg-slate-900 shadow-md border border-emerald-500/30 group-hover:border-emerald-400 group-hover:-translate-y-0.5 transition-all overflow-hidden">
               <img src="/js/Orca6_Logo_1_Breaching_Orca.png" alt="Orca6 Logo" className="w-full h-full object-contain p-0.5" />
             </div>
             <div className="hidden sm:block">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-black tracking-widest uppercase text-slate-900">
+                <span className="text-sm font-black tracking-widest uppercase text-white font-title">
                   Jumpstreet
                 </span>
-                <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest hidden md:inline bg-blue-50 text-blue-700 border border-blue-100 shadow-inner">
+                <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest hidden md:inline bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-inner">
                   Mangalik &amp; Sons Ventures
                 </span>
               </div>
-              <p className="text-[10px] font-bold tracking-wider uppercase text-slate-500 group-hover:text-blue-600 transition-colors">
+              <p className="text-[10px] font-bold tracking-wider uppercase text-slate-400 group-hover:text-emerald-400 transition-colors">
                 Mangalik &amp; Sons Ventures
               </p>
             </div>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-2 font-bold uppercase tracking-widest text-[11px] p-1.5 bg-slate-100/50 rounded-2xl border border-black/5 backdrop-blur-sm shadow-inner" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-2 font-bold uppercase tracking-widest text-[11px] p-1.5 bg-slate-900/80 rounded-2xl border border-white/10 backdrop-blur-sm shadow-inner" aria-label="Main navigation">
             {navItems.map(({ key, label, icon }) => {
               const isActive = activeTab === key;
               return (
@@ -217,23 +217,23 @@ function AppContent() {
                   key={key}
                   onClick={() => switchTab(key)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all relative z-10 ${
-                    isActive ? (key === 'checkout' ? 'text-blue-600' : 'text-slate-900') : 'text-slate-500 hover:text-slate-800 hover:bg-white/50'
+                    isActive ? (key === 'checkout' ? 'text-emerald-400 font-black' : 'text-emerald-300 font-black') : 'text-slate-400 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {isActive && (
                     <motion.div 
                       layoutId="desktopNavBubble"
-                      className="absolute inset-0 bg-white border border-black/5 rounded-xl shadow-sm -z-10"
+                      className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/40 rounded-xl shadow-sm -z-10"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
                   {icon}
                   {label}
                   {key === 'checkout' && hasPendingCheckout && (
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping absolute top-1.5 right-1.5" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping absolute top-1.5 right-1.5" />
                   )}
                   {key === 'orders' && orders.length > 0 && (
-                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full ml-1 bg-blue-50 text-blue-700 border border-blue-100">
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full ml-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                       {orders.length}
                     </span>
                   )}
@@ -254,7 +254,7 @@ function AppContent() {
 
             <button
               onClick={() => setMobileMenuOpen(m => !m)}
-              className="lg:hidden p-3 rounded-xl transition-all bg-slate-100 text-slate-600 border border-black/5 hover:bg-slate-200"
+              className="lg:hidden p-3 rounded-xl transition-all bg-slate-900 text-slate-300 border border-white/10 hover:bg-slate-800"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -270,7 +270,7 @@ function AppContent() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden sticky z-30 border-b border-black/5 px-4 py-4 space-y-2 font-bold uppercase tracking-widest text-[11px] bg-white/95 backdrop-blur-2xl overflow-hidden shadow-md"
+            className="lg:hidden sticky z-30 border-b border-white/10 px-4 py-4 space-y-2 font-bold uppercase tracking-widest text-[11px] bg-slate-950/95 backdrop-blur-2xl overflow-hidden shadow-xl"
             style={{ top: '65px' }}
           >
             {navItems.map(({ key, label, icon }) => (
@@ -278,14 +278,14 @@ function AppContent() {
                 key={key}
                 onClick={() => switchTab(key)}
                 className={`w-full text-left flex items-center justify-between p-4 rounded-xl transition-all ${
-                   activeTab === key ? 'bg-blue-50 text-blue-700 border border-blue-100 shadow-sm' : 'text-slate-600 hover:bg-slate-50'
+                   activeTab === key ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm' : 'text-slate-400 hover:bg-white/5 hover:text-white'
                 }`}
               >
-                <span className={`flex items-center gap-3 ${activeTab === key && key === 'checkout' ? 'text-blue-600' : ''}`}>
+                <span className={`flex items-center gap-3 ${activeTab === key && key === 'checkout' ? 'text-emerald-400' : ''}`}>
                   {icon} {label}
                 </span>
                 {key === 'orders' && orders.length > 0 && (
-                  <span className="text-[10px] font-bold text-blue-700 bg-white px-3 py-1 rounded-full border border-blue-100 shadow-sm">
+                  <span className="text-[10px] font-bold text-emerald-300 bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-500/40 shadow-sm">
                     {orders.length}
                   </span>
                 )}
@@ -305,63 +305,63 @@ function AppContent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative rounded-[32px] border border-white/60 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.05)] bg-white/60 backdrop-blur-2xl transition-shadow hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)]"
+            className="relative rounded-[32px] border border-white/10 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] bg-slate-900/70 backdrop-blur-2xl transition-shadow hover:shadow-[0_35px_70px_rgba(0,0,0,0.8)]"
           >
-            <div className="absolute right-0 top-0 w-80 h-80 pointer-events-none bg-blue-100/50 blur-[60px] rounded-full translate-x-1/3 -translate-y-1/3" />
-            <div className="absolute left-0 bottom-0 w-64 h-64 pointer-events-none bg-indigo-100/50 blur-[60px] rounded-full -translate-x-1/3 translate-y-1/3" />
+            <div className="absolute right-0 top-0 w-80 h-80 pointer-events-none bg-emerald-500/10 blur-[80px] rounded-full translate-x-1/3 -translate-y-1/3" />
+            <div className="absolute left-0 bottom-0 w-64 h-64 pointer-events-none bg-cyan-500/10 blur-[80px] rounded-full -translate-x-1/3 translate-y-1/3" />
 
             <div className="relative p-8 sm:p-10 lg:p-12">
-              <div className="flex items-center gap-3 mb-6 bg-white/60 w-max px-4 py-2 rounded-full border border-black/5 shadow-sm">
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse shadow-sm" />
-                <span className="text-[11px] font-bold text-blue-600 tracking-[0.2em] uppercase">
+              <div className="flex items-center gap-3 mb-6 bg-slate-950/80 w-max px-4 py-2 rounded-full border border-emerald-500/30 shadow-sm">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm" />
+                <span className="text-[11px] font-bold text-emerald-400 tracking-[0.2em] uppercase font-mono">
                   Platform Node Active
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] uppercase mb-6 text-slate-900 font-title">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 drop-shadow-sm block sm:inline">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] uppercase mb-6 text-white font-title">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 drop-shadow-md block sm:inline">
                   Apex Algorithmic Execution
                 </span>{' '}
-                <span className="opacity-70 text-slate-500 text-2xl sm:text-3xl font-medium font-sans">
+                <span className="opacity-70 text-slate-400 text-2xl sm:text-3xl font-medium font-sans">
                   — Powered by
                 </span>{' '}
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-title font-black text-2xl sm:text-4xl shadow-sm tracking-normal">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-title font-black text-2xl sm:text-4xl shadow-sm tracking-normal">
                   Orca6™
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg leading-relaxed max-w-2xl mb-8 text-slate-600 font-medium">
+              <p className="text-base sm:text-lg leading-relaxed max-w-2xl mb-8 text-slate-300 font-medium">
                 Experience fully hands-off, state-of-the-art algorithmic trading. Jumpstreet secures
                 the lowest-latency Windows Cloud VPS packages seamlessly pre-installed with our elite{' '}
-                <strong className="text-slate-900 font-black">Orca6™</strong> trading logic, delivering instant execution directly to the markets.
+                <strong className="text-emerald-400 font-black">Orca6™</strong> trading logic, delivering instant execution directly to the markets.
               </p>
 
-              <div className="mb-10 p-5 rounded-2xl bg-indigo-50 border border-indigo-200 shadow-sm text-sm font-medium text-indigo-900 leading-relaxed max-w-2xl">
-                <strong className="text-indigo-700 flex items-center gap-2 mb-2 text-xs tracking-widest uppercase"><ShieldCheck size={16} /> VIP Client Onboarding & Zero-Risk Trial</strong>
+              <div className="mb-10 p-5 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 shadow-sm text-sm font-medium text-indigo-200 leading-relaxed max-w-2xl backdrop-blur-xl">
+                <strong className="text-indigo-400 flex items-center gap-2 mb-2 text-xs tracking-widest uppercase font-mono"><ShieldCheck size={16} /> VIP Client Onboarding &amp; Zero-Risk Trial</strong>
                 For the <strong>Trial License</strong>, Jumpstreet provisions and delivers a <strong>Pre-Funded Demo Account</strong> with login credentials so you can evaluate Orca6™ execution logic with <strong>zero personal capital risk</strong>. When upgrading to the <strong>Premium VM Bundle</strong>, our engineering team handles 100% of the turnkey setup on your Real or Prop-Firm (Funding) accounts—including zero-loss deposit guidance via Paytm, UPI, Cards, or Crypto.
-                <ul className="mt-3.5 space-y-1 text-xs font-semibold text-indigo-800">
+                <ul className="mt-3.5 space-y-1 text-xs font-semibold text-indigo-300">
                   <li className="flex items-center gap-2">✓ Pre-funded demo account credentials delivered instantly for Trial License</li>
-                  <li className="flex items-center gap-2">✓ Compatible with Real Accounts & Prop-Firm / Funded Accounts</li>
-                  <li className="flex items-center gap-2">✓ Dedicated 1:1 onboarding & zero-loss deposit assistance</li>
+                  <li className="flex items-center gap-2">✓ Compatible with Real Accounts &amp; Prop-Firm / Funded Accounts</li>
+                  <li className="flex items-center gap-2">✓ Dedicated 1:1 onboarding &amp; zero-loss deposit assistance</li>
                 </ul>
               </div>
 
               {/* Stats Grid */}
               <div className="flex sm:grid sm:grid-cols-4 gap-4 overflow-x-auto pb-4 sm:pb-0 snap-x hide-scrollbar">
                 {[
-                  { label: 'Gateway Status', value: 'Secure Live',    color: '#2563eb', pulse: true, bg: 'bg-blue-50' },
-                  { label: 'Signal Latency',  value: '~1.2 ms avg',   color: '#0f172a',  pulse: false, bg: 'bg-slate-100' },
-                  { label: 'Dual-Homed Node Stock', value: '14 Units Left', color: '#64748b',  pulse: false, bg: 'bg-slate-50' },
-                  { label: 'Operator',        value: 'M&S Ventures',   color: '#00A86B', pulse: false, bg: 'bg-emerald-50' },
+                  { label: 'Gateway Status', value: 'Secure Live',    color: '#34d399', pulse: true, bg: 'bg-emerald-950/40 border-emerald-500/30' },
+                  { label: 'Signal Latency',  value: '~1.2 ms avg',   color: '#38bdf8',  pulse: false, bg: 'bg-slate-950/80 border-white/10' },
+                  { label: 'Dual-Homed Node Stock', value: '14 Units Left', color: '#cbd5e1',  pulse: false, bg: 'bg-slate-950/80 border-white/10' },
+                  { label: 'Operator',        value: 'M&S Ventures',   color: '#34d399', pulse: false, bg: 'bg-emerald-950/40 border-emerald-500/30' },
                 ].map((s, i) => (
                   <motion.div
                     whileHover={{ y: -4 }}
                     key={i}
-                    className={`p-5 rounded-2xl border border-black/5 backdrop-blur-xl shadow-sm ${s.bg} min-w-[160px] sm:min-w-0 snap-center shrink-0`}
+                    className={`p-5 rounded-2xl border backdrop-blur-xl shadow-sm ${s.bg} min-w-[160px] sm:min-w-0 snap-center shrink-0`}
                   >
-                    <span className="text-[10px] font-bold block uppercase tracking-widest mb-2 text-slate-500">{s.label}</span>
+                    <span className="text-[10px] font-mono font-bold block uppercase tracking-widest mb-2 text-slate-400">{s.label}</span>
                     <span className="text-xs font-black flex items-center gap-2 font-title tracking-wide" style={{ color: s.color }}>
-                      {s.pulse && <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0 shadow-sm" />}
+                      {s.pulse && <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0 shadow-sm" />}
                       {s.value}
                     </span>
                   </motion.div>
@@ -376,11 +376,11 @@ function AppContent() {
               
               {activeTab === 'store' && (
                 <motion.div key="store" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="space-y-6">
-                  <div className="bg-white/60 p-6 rounded-[24px] border border-white/60 shadow-sm backdrop-blur-xl mb-6">
-                    <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
-                      <TrendingUp size={22} className="text-blue-600" /> Licenses &amp; Hardware Catalog
+                  <div className="bg-slate-900/70 p-6 rounded-[24px] border border-white/10 shadow-lg backdrop-blur-xl mb-6">
+                    <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-white font-title">
+                      <TrendingUp size={22} className="text-emerald-400" /> Licenses &amp; Hardware Catalog
                     </h2>
-                    <p className="text-sm font-semibold mt-1 text-slate-500">Order licenses and hardware imported for optimal latency</p>
+                    <p className="text-sm font-medium mt-1 text-slate-400">Order licenses and hardware imported for optimal latency</p>
                   </div>
                   <ProductCatalog onSelectProduct={handleSelectProduct} />
                 </motion.div>
@@ -388,11 +388,11 @@ function AppContent() {
 
               {activeTab === 'vm' && (
                 <motion.div key="vm" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="space-y-6">
-                  <div className="bg-white/60 p-6 rounded-[24px] border border-white/60 shadow-sm backdrop-blur-xl mb-6">
-                    <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
-                      <Sliders size={22} className="text-blue-600" /> Custom VM Architecture Build
+                  <div className="bg-slate-900/70 p-6 rounded-[24px] border border-white/10 shadow-lg backdrop-blur-xl mb-6">
+                    <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-white font-title">
+                      <Sliders size={22} className="text-emerald-400" /> Custom VM Architecture Build
                     </h2>
-                    <p className="text-sm font-semibold mt-1 text-slate-500">Tailor the perfect Windows VPS for continuous automated execution</p>
+                    <p className="text-sm font-medium mt-1 text-slate-400">Tailor the perfect Windows VPS for continuous automated execution</p>
                   </div>
                   <VmConfigurator onAddVmToCart={handleAddVmToCart} />
                 </motion.div>
@@ -416,30 +416,30 @@ function AppContent() {
 
               {activeTab === 'orders' && (
                 <motion.div key="orders" variants={tabVariants} initial="hidden" animate="visible" exit="exit" className="space-y-6">
-                  <div className="flex justify-between items-center flex-wrap gap-3 bg-white/60 p-6 rounded-[24px] border border-white/60 shadow-sm backdrop-blur-xl">
+                  <div className="flex justify-between items-center flex-wrap gap-3 bg-slate-900/70 p-6 rounded-[24px] border border-white/10 shadow-lg backdrop-blur-xl">
                     <div>
-                      <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
-                        <FileCheck size={22} className="text-blue-600" /> Order &amp; License Logbook
+                      <h2 className="text-base sm:text-lg font-black tracking-widest flex items-center gap-3 uppercase text-white font-title">
+                        <FileCheck size={22} className="text-emerald-400" /> Order &amp; License Logbook
                       </h2>
-                      <p className="text-sm font-semibold mt-1 text-slate-500">Track billing verifications and subscription states</p>
+                      <p className="text-sm font-medium mt-1 text-slate-400">Track billing verifications and subscription states</p>
                     </div>
-                    <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-sm">
+                    <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shadow-sm font-mono">
                       LOCAL STORAGE SECURED
                     </span>
                   </div>
 
                   {orders.length === 0 ? (
-                    <div className="rounded-[24px] border border-white/60 p-12 sm:p-16 text-center bg-white/40 backdrop-blur-2xl shadow-sm">
-                      <div className="w-20 h-20 rounded-[20px] flex items-center justify-center mx-auto mb-6 bg-slate-100 border border-black/5 text-slate-400 shadow-inner">
+                    <div className="rounded-[24px] border border-white/10 p-12 sm:p-16 text-center bg-slate-900/60 backdrop-blur-2xl shadow-lg">
+                      <div className="w-20 h-20 rounded-[20px] flex items-center justify-center mx-auto mb-6 bg-slate-950 border border-white/10 text-slate-400 shadow-inner">
                         <Clock size={32} />
                       </div>
-                      <h3 className="text-base font-black uppercase tracking-widest text-slate-900 font-title">No transactions yet</h3>
-                      <p className="text-sm mt-3 max-w-sm mx-auto font-medium text-slate-500 leading-relaxed">
+                      <h3 className="text-base font-black uppercase tracking-widest text-white font-title">No transactions yet</h3>
+                      <p className="text-sm mt-3 max-w-sm mx-auto font-medium text-slate-400 leading-relaxed">
                         Scan the UPI QR in Checkout, transfer funds, and enter your reference ID.
                       </p>
                       <button
                         onClick={() => switchTab('store')}
-                        className="mt-8 px-8 py-3.5 rounded-full text-xs font-bold transition-all uppercase tracking-widest bg-slate-900 text-white hover:bg-slate-800 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                        className="mt-8 px-8 py-3.5 rounded-full text-xs font-bold transition-all uppercase tracking-widest bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 hover:from-emerald-400 hover:to-teal-400 shadow-md hover:shadow-lg hover:-translate-y-0.5"
                       >
                         Browse Licenses
                       </button>
@@ -452,24 +452,24 @@ function AppContent() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: i * 0.1 }}
                           key={ord.id}
-                          className="rounded-[24px] border border-white/60 p-6 sm:p-8 space-y-6 bg-white/60 backdrop-blur-xl shadow-sm hover:shadow-md hover:bg-white/80 transition-all group"
+                          className="rounded-[24px] border border-white/10 p-6 sm:p-8 space-y-6 bg-slate-900/70 backdrop-blur-xl shadow-lg hover:border-emerald-500/30 transition-all group"
                         >
-                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-5 border-b border-black/5">
+                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-5 border-b border-white/10">
                             <div>
-                              <span className="text-sm font-black uppercase tracking-widest text-slate-900 group-hover:text-blue-600 transition-colors font-title">
+                              <span className="text-sm font-black uppercase tracking-widest text-white group-hover:text-emerald-400 transition-colors font-title">
                                 {ord.planName}
                               </span>
                               <div className="flex flex-wrap items-center gap-3 mt-2 font-mono">
-                                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-black/5">ID: {ord.id}</span>
-                                <span className="text-slate-300">•</span>
-                                <span className="text-[11px] font-bold text-slate-500">{ord.createdAt}</span>
+                                <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">ID: {ord.id}</span>
+                                <span className="text-slate-600">•</span>
+                                <span className="text-[11px] font-bold text-slate-400">{ord.createdAt}</span>
                               </div>
                             </div>
                             <span
                               className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm ${
                                 (ord.status === 'active' || ord.status === 'completed') 
-                                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
-                                  : 'bg-amber-50 text-amber-700 border border-amber-200'
+                                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                                  : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                               }`}
                             >
                               {(ord.status === 'active' || ord.status === 'completed') ? '✅ Verified & Active' : '⏳ Verifying...'}
@@ -483,36 +483,36 @@ function AppContent() {
                               { label: 'Total Paid', primary: `₹${ord.amountPaid.toLocaleString('en-IN')}`, secondary: `~$${(ord.amountPaid/85).toFixed(1)} USD`, big: true },
                             ].map((row, j) => (
                               <div key={j}>
-                                <span className="block text-[10px] uppercase tracking-widest font-bold mb-1.5 text-slate-500">{row.label}</span>
-                                <span className={`block truncate ${row.big ? 'text-blue-600 font-black text-2xl font-title tracking-tight' : 'text-slate-900 font-bold'}`}>
+                                <span className="block text-[10px] uppercase tracking-widest font-mono font-bold mb-1.5 text-slate-400">{row.label}</span>
+                                <span className={`block truncate ${row.big ? 'text-emerald-400 font-black text-2xl font-title tracking-tight' : 'text-white font-bold'}`}>
                                   {row.primary}
                                 </span>
-                                <span className="text-[11px] text-slate-500 mt-1 block font-medium">{row.secondary}</span>
+                                <span className="text-[11px] text-slate-400 mt-1 block font-medium">{row.secondary}</span>
                               </div>
                             ))}
                           </div>
 
                           {ord.hasVM && (
-                            <div className="p-5 rounded-2xl border border-black/5 bg-slate-50">
-                              <div className="font-black flex items-center gap-3 uppercase tracking-widest text-slate-900 font-title">
-                                <Terminal size={18} className="text-indigo-600 animate-pulse" />
+                            <div className="p-5 rounded-2xl border border-white/10 bg-slate-950/80">
+                              <div className="font-black flex items-center gap-3 uppercase tracking-widest text-white font-title text-sm">
+                                <Terminal size={18} className="text-emerald-400 animate-pulse" />
                                 Windows Server Deployment Initiated
                               </div>
-                              <p className="text-sm mt-3 leading-relaxed text-slate-600 font-medium">
-                                Provisioning <strong className="text-slate-900 font-bold">{ord.vmDetails?.ram || 2}GB RAM</strong> node in <strong className="text-slate-900 font-bold">{ord.vmDetails?.region || 'Mumbai'}</strong>. Credentials dispatched via Telegram.
+                              <p className="text-sm mt-3 leading-relaxed text-slate-300 font-medium">
+                                Provisioning <strong className="text-white font-bold">{ord.vmDetails?.ram || 2}GB RAM</strong> node in <strong className="text-white font-bold">{ord.vmDetails?.region || 'Mumbai'}</strong>. Credentials dispatched via Telegram.
                               </p>
                             </div>
                           )}
 
-                          <div className="pt-5 border-t border-black/5 flex justify-between items-center text-[11px] font-bold">
-                            <span className="italic text-slate-500">
+                          <div className="pt-5 border-t border-white/10 flex justify-between items-center text-[11px] font-bold">
+                            <span className="italic text-slate-400">
                               {ord.status === 'pending_verification'
                                 ? '🔒 Awaiting ledger review by Mangalik & Sons Ventures.'
                                 : '✅ License key dispatched via Telegram.'}
                             </span>
                             <button
                               onClick={() => handleCancelOrder(ord.id)}
-                              className="text-red-500 hover:text-white transition-colors uppercase tracking-widest ml-4 px-4 py-2 rounded-full border border-red-200 bg-red-50 hover:bg-red-500 shadow-sm"
+                              className="text-red-400 hover:text-white transition-colors uppercase tracking-widest ml-4 px-4 py-2 rounded-full border border-red-500/30 bg-red-500/10 hover:bg-red-600 shadow-sm"
                             >
                               Cancel
                             </button>
@@ -534,21 +534,21 @@ function AppContent() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="rounded-[24px] border border-white/60 p-8 space-y-6 bg-white/60 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+            className="rounded-[24px] border border-white/10 p-8 space-y-6 bg-slate-900/70 backdrop-blur-2xl shadow-lg"
           >
-            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] pb-4 border-b border-black/5 text-slate-500 flex items-center gap-2">
+            <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] pb-4 border-b border-white/10 text-slate-400 flex items-center gap-2 font-mono">
                Corporate Overview
             </h3>
-            <div className="space-y-4 text-sm leading-relaxed text-slate-600 font-medium">
+            <div className="space-y-4 text-sm leading-relaxed text-slate-300 font-medium">
               <p>
-                High-frequency automated execution infrastructure. A technology division of <strong className="text-slate-900 font-bold">Mangalik & Sons Ventures</strong>.
+                High-frequency automated execution infrastructure. A technology division of <strong className="text-white font-bold">Mangalik &amp; Sons Ventures</strong>.
               </p>
               <p>
                 We specialize in FPGA-accelerated, latency-critical trading utilities—delivering the{' '}
-                <strong className="text-slate-900 font-bold">Orca6™ HFT execution suite</strong>—alongside enterprise-grade 5G routing and secure J-SIM networking infrastructure.
+                <strong className="text-emerald-400 font-bold">Orca6™ HFT execution suite</strong>—alongside enterprise-grade 5G routing and secure J-SIM networking infrastructure.
               </p>
             </div>
-            <div className="p-5 rounded-2xl border border-black/5 bg-slate-50">
+            <div className="p-5 rounded-2xl border border-white/10 bg-slate-950/80">
               <span className="text-[10px] font-black block uppercase tracking-widest font-title mb-4 text-slate-400">Operations</span>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 {[
@@ -557,9 +557,9 @@ function AppContent() {
                   { label: 'Established', value: '2022' },
                   { label: 'Core Sector', value: 'HFT & Quant Execution' },
                 ].map(item => (
-                  <div key={item.label} className="p-3 rounded-xl border border-black/5 bg-white shadow-sm hover:border-blue-200 transition-colors flex flex-col justify-center">
-                    <span className="block text-[9px] font-bold text-slate-400 mb-1 uppercase tracking-widest">{item.label}</span>
-                    <span className="font-black text-slate-900 leading-tight">{item.value}</span>
+                  <div key={item.label} className="p-3 rounded-xl border border-white/10 bg-slate-900 shadow-sm hover:border-emerald-500/40 transition-colors flex flex-col justify-center">
+                    <span className="block text-[9px] font-mono font-bold text-slate-400 mb-1 uppercase tracking-widest">{item.label}</span>
+                    <span className="font-black text-white leading-tight">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -571,14 +571,14 @@ function AppContent() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="rounded-[24px] border border-white/60 p-8 sm:p-10 text-center space-y-5 bg-white/60 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+            className="rounded-[24px] border border-white/10 p-8 sm:p-10 text-center space-y-5 bg-slate-900/70 backdrop-blur-2xl shadow-lg"
           >
-            <div className="w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto bg-slate-50 border border-black/5 text-blue-600 shadow-inner">
+            <div className="w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto bg-slate-950 border border-white/10 text-emerald-400 shadow-inner">
               <MessageSquare size={24} />
             </div>
             <div>
-              <h4 className="text-base font-black uppercase tracking-widest text-slate-900 font-title">Need Custom Setup?</h4>
-              <p className="text-xs mt-2 font-medium text-slate-500 leading-relaxed max-w-[200px] mx-auto">
+              <h4 className="text-base font-black uppercase tracking-widest text-white font-title">Need Custom Setup?</h4>
+              <p className="text-xs mt-2 font-medium text-slate-400 leading-relaxed max-w-[200px] mx-auto">
                 We design fully automated systems tailored to your trading strategy.
               </p>
             </div>
@@ -586,7 +586,7 @@ function AppContent() {
               href="https://wa.me/919897577007"
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-slate-900 text-white shadow-md hover:shadow-xl hover:bg-slate-800 hover:-translate-y-0.5 group"
+              className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md hover:shadow-xl hover:from-emerald-400 hover:to-teal-400 hover:-translate-y-0.5 group"
             >
               <span>Speak to Developer</span>
               <ExternalLink size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
@@ -598,14 +598,14 @@ function AppContent() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="rounded-[24px] border border-white/60 p-8 sm:p-10 text-center space-y-5 bg-white/60 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] mt-6"
+            className="rounded-[24px] border border-white/10 p-8 sm:p-10 text-center space-y-5 bg-slate-900/70 backdrop-blur-2xl shadow-lg mt-6"
           >
-            <div className="w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto bg-slate-50 border border-black/5 text-blue-600 shadow-inner">
+            <div className="w-16 h-16 rounded-[20px] flex items-center justify-center mx-auto bg-slate-950 border border-white/10 text-cyan-400 shadow-inner">
               <Globe size={24} />
             </div>
             <div>
-              <h4 className="text-base font-black uppercase tracking-widest text-slate-900 font-title">World Monitor</h4>
-              <p className="text-xs mt-2 font-medium text-slate-500 leading-relaxed max-w-[200px] mx-auto">
+              <h4 className="text-base font-black uppercase tracking-widest text-white font-title">World Monitor</h4>
+              <p className="text-xs mt-2 font-medium text-slate-400 leading-relaxed max-w-[200px] mx-auto">
                 Live global telemetry: conflicts, economics, and infrastructure.
               </p>
             </div>
@@ -613,23 +613,23 @@ function AppContent() {
               href="https://www.worldmonitor.app/dashboard?zoom=1.00&view=global&timeRange=7d&layers=conflicts%2Cbases%2Chotspots%2Cnuclear%2Csanctions%2Cweather%2Ceconomic%2Cwaterways%2Coutages%2Cmilitary%2Cnatural"
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-white text-slate-900 border border-black/5 shadow-sm hover:shadow-md hover:bg-slate-50 hover:-translate-y-0.5 group"
+              className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-slate-950 text-white border border-white/10 shadow-sm hover:shadow-md hover:bg-slate-800 hover:-translate-y-0.5 group"
             >
               <span>Launch Radar</span>
-              <ExternalLink size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform text-blue-500" />
+              <ExternalLink size={16} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform text-cyan-400" />
             </Link>
           </motion.div>
         </aside>
       </main>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-black/5 py-12 px-4 text-center text-xs mt-auto relative z-10 bg-slate-100/50 backdrop-blur-md">
+      <footer className="border-t border-white/10 py-12 px-4 text-center text-xs mt-auto relative z-10 bg-slate-950/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <span>Jumpstreet • Mangalik & Sons Ventures © 2026. All rights reserved.</span>
-            <span className="text-emerald-700 tracking-wider">Orca6™ — Intelligent. Strategic. Apex.</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">
+            <span>Jumpstreet • Mangalik &amp; Sons Ventures © 2026. All rights reserved.</span>
+            <span className="text-emerald-400 tracking-wider">Orca6™ — Intelligent. Strategic. Apex.</span>
           </div>
-          <p className="max-w-2xl mx-auto text-[11px] leading-relaxed text-slate-500 font-medium">
+          <p className="max-w-2xl mx-auto text-[11px] leading-relaxed text-slate-400 font-medium">
             Jumpstreet is a technology distribution venture. Trading signals are for backtesting and analytical simulation.
             We do not provide personalised financial advice. *Prices exclude GST. International payments via Stripe/Razorpay. <br/>
             Your data is never shared or sold. Secured via 256-bit encryption.
@@ -640,7 +640,7 @@ function AppContent() {
               { label: 'Primary Network Portal', href: 'https://adityasec32.systems' },
               { label: 'Terms & Risk Governance', href: '#' },
             ].map(link => (
-              <Link key={link.label} href={link.href} className="hover:text-blue-600 transition-colors">
+              <Link key={link.label} href={link.href} className="hover:text-emerald-400 transition-colors">
                 {link.label}
               </Link>
             ))}
@@ -649,13 +649,13 @@ function AppContent() {
       </footer>
 
       {/* ── Mobile Bottom Navigation ── */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-xl border-t border-black/5 flex justify-around p-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] shadow-[0_-10px_20px_rgba(0,0,0,0.03)]">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-white/10 flex justify-around p-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] shadow-2xl">
         {navItems.map(({ key, label, icon }) => (
           <button
             key={key}
             onClick={() => switchTab(key)}
             className={`flex flex-col items-center justify-center p-2 rounded-xl gap-1.5 min-w-[60px] transition-all ${
-              activeTab === key ? 'text-blue-600 bg-blue-50' : 'text-slate-500 hover:bg-slate-50'
+              activeTab === key ? 'text-emerald-400 bg-emerald-500/20' : 'text-slate-400 hover:bg-white/5'
             }`}
           >
             {icon}
@@ -663,8 +663,6 @@ function AppContent() {
           </button>
         ))}
       </nav>
-
-      {/* Visit Counter removed */}
 
       {/* ── Scroll-to-Top Button ── */}
       <AnimatePresence>
@@ -676,7 +674,7 @@ function AppContent() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollTop}
-            className="fixed bottom-24 sm:bottom-8 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center bg-slate-900 text-white shadow-[0_10px_25px_rgba(0,0,0,0.15)] hover:bg-blue-600 hover:shadow-[0_10px_25px_rgba(37,99,235,0.3)] transition-all"
+            className="fixed bottom-24 sm:bottom-8 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center bg-slate-900 border border-emerald-500/40 text-emerald-400 shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:bg-emerald-500 hover:text-slate-950 hover:shadow-[0_10px_25px_rgba(16,185,129,0.3)] transition-all"
             aria-label="Scroll to top"
           >
             <ChevronUp size={24} />

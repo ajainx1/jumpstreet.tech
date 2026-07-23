@@ -146,23 +146,23 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
             <motion.div
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className={`rounded-[24px] border flex flex-col justify-between overflow-hidden relative group shadow-sm hover:shadow-md transition-shadow backdrop-blur-xl ${isPremium ? 'bg-white border-blue-200' : 'bg-white/60 border-white/60'}`}
+              className={`rounded-[24px] border flex flex-col justify-between overflow-hidden relative group shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_45px_rgba(16,185,129,0.25)] transition-all backdrop-blur-xl ${isPremium ? 'bg-slate-900/90 border-emerald-500/50 hover:border-emerald-400' : 'bg-slate-900/70 border-white/10 hover:border-emerald-500/30'}`}
             >
               {/* Magic Border Glow for Premium */}
               {isPremium && (
-                <div className="absolute inset-0 z-0 bg-gradient-to-br from-blue-50 via-transparent to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 z-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               )}
 
               {/* Badge */}
               {prod.badge && (
-                <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest z-10 border shadow-sm ${isPremium ? 'bg-blue-600 text-white border-transparent' : 'bg-white text-slate-500 border-black/5'}`}>
+                <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest z-10 border shadow-md ${isPremium ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black border-transparent' : 'bg-slate-950 text-slate-400 border-white/10'}`}>
                   {isPremium && <span className="mr-1">⭐</span>}
                   {prod.badge}
                 </div>
               )}
 
               {/* Institutional Execution Telemetry Header */}
-              <div className="h-48 sm:h-56 relative overflow-hidden flex-shrink-0 border-b border-black/10 z-10 bg-slate-950 p-4 flex flex-col justify-between group/img">
+              <div className="h-48 sm:h-56 relative overflow-hidden flex-shrink-0 border-b border-white/10 z-10 bg-slate-950 p-4 flex flex-col justify-between group/img">
                 {/* Background Chart Overlay */}
                 {prod.bgImage && (
                   <img
@@ -198,7 +198,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                   {prod.id === 'bot_standard' ? (
                     <>
                       <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
-                        <span className="flex items-center gap-1.5 text-blue-400 font-bold"><Terminal size={12} /> ORCA6-SIGNAL-NODE #412</span>
+                        <span className="flex items-center gap-1.5 text-emerald-400 font-bold"><Terminal size={12} /> ORCA6-SIGNAL-NODE #412</span>
                         <span className="text-emerald-400 font-bold font-mono">LATENCY: {currentSignal.latency}</span>
                       </div>
                       <div className="h-5 flex items-center overflow-hidden relative">
@@ -226,7 +226,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                   ) : (
                     <>
                       <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-1">
-                        <span className="flex items-center gap-1.5 text-indigo-400 font-bold"><Server size={12} /> ORCA6-VPS-SERVER #09</span>
+                        <span className="flex items-center gap-1.5 text-cyan-400 font-bold"><Server size={12} /> ORCA6-VPS-SERVER #09</span>
                         <span className="text-emerald-400 font-bold font-mono">PING: ~{liveLatency}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-1 text-[9px] text-slate-300">
@@ -252,18 +252,18 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
               {/* Content */}
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-5 z-10 relative">
                 <div>
-                  <h4 className="text-base font-black tracking-widest uppercase group-hover:text-blue-600 transition-colors text-slate-900 font-title">
+                  <h4 className="text-base font-black tracking-widest uppercase group-hover:text-emerald-400 transition-colors text-white font-title">
                     {prod.name}
                   </h4>
-                  <p className="text-sm mt-2 leading-relaxed text-slate-600 font-medium">
+                  <p className="text-sm mt-2 leading-relaxed text-slate-300 font-medium">
                     {prod.description}
                   </p>
 
                   <ul className="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3">
                     {prod.specs?.map((spec, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm">
-                        <span className={`w-1.5 h-1.5 mt-2 flex-shrink-0 rounded-full ${isPremium ? 'bg-blue-600' : 'bg-slate-400'}`} />
-                        <span className="font-medium text-slate-600">
+                        <span className={`w-1.5 h-1.5 mt-2 flex-shrink-0 rounded-full ${isPremium ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+                        <span className="font-medium text-slate-300">
                           {spec}
                         </span>
                       </li>
@@ -271,16 +271,16 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                   </ul>
                 </div>
 
-                <div className="pt-5 sm:pt-6 border-t border-black/5 space-y-4 mt-auto">
+                <div className="pt-5 sm:pt-6 border-t border-white/10 space-y-4 mt-auto">
                   <div className="flex justify-between items-baseline">
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400">
                       Pricing
                     </span>
                     <div className="text-right">
-                      <span className={`text-2xl sm:text-3xl font-black font-title tracking-tight ${isPremium ? 'text-emerald-600' : 'text-slate-900'}`}>
+                      <span className="text-2xl sm:text-3xl font-black font-title tracking-tight text-emerald-400">
                         ₹{prod.price.toLocaleString('en-IN')}
                       </span>
-                      <span className="text-[10px] font-bold block text-slate-500 mt-1">
+                      <span className="text-[10px] font-bold block text-slate-400 mt-1">
                         International: ${(prod.price / 85).toFixed(2)} USD
                       </span>
                     </div>
@@ -290,10 +290,10 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
                     whileTap={{ scale: 0.98 }}
                     type="button"
                     onClick={() => onSelectProduct(prod)}
-                    className={`w-full py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 cursor-pointer group/btn shadow-sm ${
+                    className={`w-full py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 cursor-pointer group/btn shadow-md ${
                       isPremium 
-                        ? 'bg-emerald-500 text-white border-transparent hover:bg-emerald-600 shadow-md hover:shadow-lg border' 
-                        : 'bg-transparent border-2 border-slate-200 text-slate-700 hover:border-slate-300'
+                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black hover:from-emerald-400 hover:to-teal-400 shadow-[0_0_25px_rgba(16,185,129,0.4)] border-none' 
+                        : 'bg-slate-950/80 border-2 border-emerald-500/40 text-emerald-400 hover:bg-emerald-500 hover:text-slate-950 font-bold'
                     }`}
                   >
                     <ShoppingCart size={16} />
@@ -313,7 +313,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="rounded-[24px] border border-white/60 p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center bg-white/60 backdrop-blur-xl shadow-sm"
+        className="rounded-[24px] border border-white/10 p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center bg-slate-900/70 backdrop-blur-xl shadow-lg"
       >
         {[
           { icon: '🛡️', title: '100% Uptime Guarantee', desc: 'Enterprise SLAs with Zero Setup Fees.' },
@@ -322,13 +322,13 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
         ].map((item, i) => (
           <div
             key={i}
-            className={`space-y-2 py-4 sm:py-0 ${i > 0 ? 'sm:border-l border-t sm:border-t-0 border-black/5' : ''}`}
+            className={`space-y-2 py-4 sm:py-0 ${i > 0 ? 'sm:border-l border-t sm:border-t-0 border-white/10' : ''}`}
           >
             <span className="text-2xl">{item.icon}</span>
-            <span className="font-black block text-xs uppercase tracking-widest text-slate-900 font-title mt-2">
+            <span className="font-black block text-xs uppercase tracking-widest text-white font-title mt-2">
               {item.title}
             </span>
-            <span className="text-xs font-medium text-slate-500">
+            <span className="text-xs font-medium text-slate-400">
               {item.desc}
             </span>
           </div>
@@ -340,27 +340,27 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="mt-8 rounded-[28px] border border-white/60 p-8 sm:p-10 bg-white/60 backdrop-blur-xl shadow-sm text-left w-full"
+        className="mt-8 rounded-[28px] border border-white/10 p-8 sm:p-10 bg-slate-900/70 backdrop-blur-xl shadow-lg text-left w-full"
       >
-        <h3 className="text-lg font-black font-title uppercase tracking-widest text-slate-900 mb-8 flex items-center gap-2">
+        <h3 className="text-lg font-black font-title uppercase tracking-widest text-white mb-8 flex items-center gap-2">
           <span>❓</span> Frequently Asked Questions
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
           <div>
-            <h4 className="text-base font-bold text-slate-900 mb-2">Do I need capital to test the Orca6™ Trial?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. We provision a pre-funded demo account with credentials so you can evaluate execution logic with zero personal capital risk. Premium VM accounts support Real &amp; Prop-Firm (Funded) accounts.</p>
+            <h4 className="text-base font-bold text-white mb-2">Do I need capital to test the Orca6™ Trial?</h4>
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">No. We provision a pre-funded demo account with credentials so you can evaluate execution logic with zero personal capital risk. Premium VM accounts support Real &amp; Prop-Firm (Funded) accounts.</p>
           </div>
           <div>
-            <h4 className="text-base font-bold text-slate-900 mb-2">Do I need coding or technical experience?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">No. Our engineering team handles 100% of the turnkey technical setup directly for you.</p>
+            <h4 className="text-base font-bold text-white mb-2">Do I need coding or technical experience?</h4>
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">No. Our engineering team handles 100% of the turnkey technical setup directly for you.</p>
           </div>
           <div>
-            <h4 className="text-base font-bold text-slate-900 mb-2">How fast is the order execution?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">Average signal latency is ~1.2ms hosted on dedicated Equinix LD4 nodes via Jumpstreet API.</p>
+            <h4 className="text-base font-bold text-white mb-2">How fast is the order execution?</h4>
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">Average signal latency is ~1.2ms hosted on dedicated Equinix LD4 nodes via Jumpstreet API.</p>
           </div>
           <div>
-            <h4 className="text-base font-bold text-slate-900 mb-2">Are Paytm, UPI, Cards &amp; Crypto accepted?</h4>
-            <p className="text-sm text-slate-600 font-medium leading-relaxed">Yes. We provide guided zero-loss deposit assistance across all major Indian and international payment gateways.</p>
+            <h4 className="text-base font-bold text-white mb-2">Are Paytm, UPI, Cards &amp; Crypto accepted?</h4>
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">Yes. We provide guided zero-loss deposit assistance across all major Indian and international payment gateways.</p>
           </div>
         </div>
       </motion.div>
