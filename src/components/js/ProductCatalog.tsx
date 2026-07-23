@@ -69,35 +69,44 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
   const [ramLoad, setRamLoad] = useState(42);
 
   const [signals, setSignals] = useState([
-    { symbol: 'XAUUSD', action: 'BUY', price: 2748.40, sl: 2741.20, tp: 2762.80, latency: '1.1ms', rr: '1:2.0', decimals: 2 },
+    { symbol: 'XAUUSD', action: 'BUY', price: 4128.50, sl: 4115.00, tp: 4155.50, latency: '1.1ms', rr: '1:2.0', decimals: 2 },
     { symbol: 'BTCUSD', action: 'BUY', price: 96480.00, sl: 95850.00, tp: 97740.00, latency: '0.9ms', rr: '1:2.0', decimals: 2 },
-    { symbol: 'EURUSD', action: 'SELL', price: 1.04820, sl: 1.05150, tp: 1.04160, latency: '1.2ms', rr: '1:2.0', decimals: 5 },
-    { symbol: 'NQ1!', action: 'BUY', price: 21460.50, sl: 21390.00, tp: 21601.00, latency: '0.8ms', rr: '1:2.0', decimals: 2 },
+    { symbol: 'EURUSD', action: 'SELL', price: 1.14120, sl: 1.14450, tp: 1.13460, latency: '1.2ms', rr: '1:2.0', decimals: 5 },
+    { symbol: 'NQ1!', action: 'BUY', price: 29075.00, sl: 28950.00, tp: 29325.00, latency: '0.8ms', rr: '1:2.0', decimals: 2 },
   ]);
 
   useEffect(() => {
-    // Live price fetch for BTCUSD from public Binance API for 100% realistic live data
-    fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.price) {
-          const btcPrice = parseFloat(data.price);
-          if (!isNaN(btcPrice) && btcPrice > 0) {
-            setSignals(prev => prev.map(s => {
-              if (s.symbol === 'BTCUSD') {
-                return {
-                  ...s,
-                  price: btcPrice,
-                  sl: parseFloat((btcPrice * 0.993).toFixed(2)),
-                  tp: parseFloat((btcPrice * 1.014).toFixed(2)),
-                };
-              }
-              return s;
-            }));
+    // Fetch live Gold (XAUUSD via PAXG spot) & BTCUSD from Binance API for 100% realistic live market data
+    Promise.all([
+      fetch('https://api.binance.com/api/v3/ticker/price?symbol=PAXGUSDT').then(r => r.json()).catch(() => null),
+      fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT').then(r => r.json()).catch(() => null),
+    ]).then(([paxgData, btcData]) => {
+      setSignals(prev => prev.map(s => {
+        if (s.symbol === 'XAUUSD' && paxgData && paxgData.price) {
+          const goldPrice = parseFloat(paxgData.price);
+          if (!isNaN(goldPrice) && goldPrice > 0) {
+            return {
+              ...s,
+              price: goldPrice,
+              sl: parseFloat((goldPrice * 0.9967).toFixed(2)),
+              tp: parseFloat((goldPrice * 1.0065).toFixed(2)),
+            };
           }
         }
-      })
-      .catch(() => {});
+        if (s.symbol === 'BTCUSD' && btcData && btcData.price) {
+          const btcPrice = parseFloat(btcData.price);
+          if (!isNaN(btcPrice) && btcPrice > 0) {
+            return {
+              ...s,
+              price: btcPrice,
+              sl: parseFloat((btcPrice * 0.9935).toFixed(2)),
+              tp: parseFloat((btcPrice * 1.0130).toFixed(2)),
+            };
+          }
+        }
+        return s;
+      }));
+    }).catch(() => {});
 
     const interval = setInterval(() => {
       setSignalIndex((prev) => (prev + 1) % 4);
