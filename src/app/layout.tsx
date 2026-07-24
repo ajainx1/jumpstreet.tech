@@ -8,8 +8,13 @@ export const metadata: Metadata = {
   title: 'Orca6™ — Automated Trading Platform by Jumpstreet',
   description: 'Orca6 automated trading indicator platform with sub-millisecond latency, VM hosting, and 24/7 VIP support.',
   manifest: "/manifest.json",
+  metadataBase: new URL("https://jumpstreet.tech"),
+  alternates: {
+    canonical: "https://jumpstreet.tech",
+  },
   other: {
     'google-adsense-account': 'ca-pub-6072468142870937',
+    'theme-color': '#020817',
   },
   appleWebApp: {
     capable: true,
