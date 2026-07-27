@@ -75,7 +75,7 @@ export default function AdSenseBanner({ refreshKey = 0, className = "" }: AdSens
 
   // Fallback ad index rotation
   useEffect(() => {
-    setAdLoaded(true);
+    
   }, [refreshKey, adIndex]);
 
   const currentAd = TRADING_SPONSOR_ADS[adIndex];
