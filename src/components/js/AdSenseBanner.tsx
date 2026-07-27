@@ -73,17 +73,9 @@ export default function AdSenseBanner({ refreshKey = 0, className = "" }: AdSens
     }
   }, [refreshKey]);
 
-  // Safely trigger Google AdSense push
+  // Fallback ad index rotation
   useEffect(() => {
-    try {
-      if (typeof window !== 'undefined') {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const adsbygoogle = (window as any).adsbygoogle || [];
-        adsbygoogle.push({});
-      }
-    } catch (e) {
-      console.log('AdSense init notice:', e);
-    }
+    setAdLoaded(true);
   }, [refreshKey, adIndex]);
 
   const currentAd = TRADING_SPONSOR_ADS[adIndex];
@@ -104,15 +96,8 @@ export default function AdSenseBanner({ refreshKey = 0, className = "" }: AdSens
           </span>
         </div>
 
-        {/* Live Google AdSense Ins Tag */}
-        <div className="relative overflow-hidden rounded-2xl">
-          <ins className="adsbygoogle"
-               style={{ display: 'block', width: '100%', minHeight: '90px' }}
-               data-ad-client="ca-pub-6072468142870937"
-               data-ad-slot="auto"
-               data-ad-format="auto"
-               data-full-width-responsive="true" />
-        </div>
+        {/* Auto Ads will automatically inject real AdSense ads onto the page. */}
+        {/* We do not place an <ins> tag here without a valid data-ad-slot ID. */}
 
         {/* Active Animated Ad Banner Creative */}
         <AnimatePresence mode="wait">
