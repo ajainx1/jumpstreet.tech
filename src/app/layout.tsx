@@ -2,6 +2,8 @@ import { Metadata, Viewport } from 'next';
 import './globals.css';
 import PWAInstallPrompt from '@/components/js/PWAInstallPrompt';
 import TelegramVisitorLogger from '@/components/js/TelegramVisitorLogger';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -40,10 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className="antialiased bg-[#020817] text-slate-50 overflow-x-hidden min-h-screen">
-        {children}
-        <PWAInstallPrompt />
-        <TelegramVisitorLogger />
+      <body className="antialiased overflow-x-hidden min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {children}
+          <ThemeToggle />
+          <PWAInstallPrompt />
+          <TelegramVisitorLogger />
+        </ThemeProvider>
         <script
           dangerouslySetInnerHTML={{
             __html: `
