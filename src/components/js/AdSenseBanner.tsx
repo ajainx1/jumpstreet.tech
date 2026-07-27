@@ -111,8 +111,7 @@ export default function AdSenseBanner({ refreshKey = 0, className = "" }: AdSens
                data-ad-client="ca-pub-6072468142870937"
                data-ad-slot="auto"
                data-ad-format="auto"
-               data-full-width-responsive="true"
-               data-ad-test="on" />
+               data-full-width-responsive="true" />
         </div>
 
         {/* Active Animated Ad Banner Creative */}
