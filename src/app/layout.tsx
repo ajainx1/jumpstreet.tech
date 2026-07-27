@@ -1,8 +1,13 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import './globals.css';
 import PWAInstallPrompt from '@/components/js/PWAInstallPrompt';
 import TelegramVisitorLogger from '@/components/js/TelegramVisitorLogger';
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'Orca6™ — Automated Trading Platform by Jumpstreet',

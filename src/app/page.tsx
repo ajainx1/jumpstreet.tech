@@ -160,7 +160,7 @@ function AppContent() {
   const hasPendingCheckout = !!(selectedProduct || customVmConfig);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans relative text-slate-100 bg-[#020817] overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-500">
+    <div className="min-h-screen flex flex-col font-sans relative text-slate-100 bg-[#020817] overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-500 pb-20 lg:pb-0">
       {/* ── Dynamic iCloud Mesh Background ── */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[#020817]" />
