@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Zap, ShoppingCart, ArrowRight, Radio, Server, Terminal } from 'lucide-react';
+import { Zap, ShoppingCart, ArrowRight, Radio, Server, Terminal, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Product } from './types';
 import TiltWrapper from '@/components/3d/TiltWrapper';
