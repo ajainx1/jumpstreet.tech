@@ -87,10 +87,10 @@ export default function VmConfigurator({ onAddVmToCart }: VmConfiguratorProps) {
               Config Ready
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
+          <h2 className="text-lg sm:text-xl font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
             <Server size={22} className="text-blue-600" />
-            Windows Cloud VM Configurator
-          </h3>
+            Sub-Millisecond Cloud VPS Hosting Configurator
+          </h2>
           <p className="text-sm mt-2 font-medium text-slate-500 max-w-md leading-relaxed">
             Deploy a dedicated virtual environment optimized for 24/7 autonomous HFT trading with sub-millisecond latency.
           </p>

@@ -79,10 +79,10 @@ export default function AlertsSimulator() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8 sm:mb-10 flex-wrap gap-4 relative z-10">
         <div>
-          <h3 className="text-lg sm:text-xl font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
+          <h2 className="text-lg sm:text-xl font-black tracking-widest flex items-center gap-3 uppercase text-slate-900 font-title">
             <BellRing size={22} className="text-blue-600" />
-            Live Alert Tester
-          </h3>
+            Live Execution Signal Simulator
+          </h2>
           <p className="text-sm mt-2 font-medium text-slate-500 max-w-md">
             Simulate telemetry webhook triggers for microstructural trade indicators to external endpoints.
           </p>

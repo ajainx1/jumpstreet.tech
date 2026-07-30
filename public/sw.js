@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jumpstreet-orca6-v1';
+const CACHE_NAME = 'jumpstreet-v1';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -19,15 +19,12 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
-  // Ignore chrome-extension:// and other non-http schemes
   if (!event.request.url.startsWith('http')) return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        // Return cached version, but fetch and update cache in background (stale-while-revalidate)
         event.waitUntil(
           fetch(event.request).then((networkResponse) => {
             caches.open(CACHE_NAME).then((cache) => {
@@ -38,7 +35,6 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
 
-      // If not in cache, fetch from network and cache it
       return fetch(event.request).then((networkResponse) => {
         if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
           return networkResponse;
@@ -48,9 +44,7 @@ self.addEventListener('fetch', (event) => {
           cache.put(event.request, responseToCache);
         });
         return networkResponse;
-      }).catch(() => {
-        // Optional: return offline fallback page here if network fails
-      });
+      }).catch(() => {});
     })
   );
 });
