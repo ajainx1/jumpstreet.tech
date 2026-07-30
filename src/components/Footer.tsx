@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { Zap, ShieldCheck, Mail, Globe } from 'lucide-react';
+import { Zap, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
