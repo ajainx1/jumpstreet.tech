@@ -131,7 +131,6 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      <div className="space-y-6">
       <h2 className="text-xl sm:text-2xl font-bold font-title text-white flex items-center gap-2 border-b border-white/10 pb-3">
         <TrendingUp className="text-emerald-400" /> Indicator Catalog & Quantitative Suite
       </h2>
