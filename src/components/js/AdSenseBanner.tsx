@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 
 interface AdSenseBannerProps {
+  refreshKey?: string | number;
   className?: string;
   adSlot?: string;
   adFormat?: string;
