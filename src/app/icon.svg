@@ -1,44 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
-    <linearGradient id="tileGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B1310"/>
-      <stop offset="100%" stop-color="#030806"/>
+    <!-- Background Dark Midnight Obsidian Gradient -->
+    <linearGradient id="jsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#070B19" />
+      <stop offset="100%" stop-color="#0F172A" />
     </linearGradient>
-    <linearGradient id="greenCandle3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4ADE80"/>
-      <stop offset="50%" stop-color="#22C55E"/>
-      <stop offset="100%" stop-color="#16A34A"/>
+
+    <!-- Electric Indigo & Purple Quant Gradient -->
+    <linearGradient id="quantIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4F46E5" />
     </linearGradient>
-    <linearGradient id="arrowGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00FF88"/>
-      <stop offset="100%" stop-color="#00E5FF"/>
+
+    <!-- Cyber Cyan / Mint Breakout Beam -->
+    <linearGradient id="breakoutCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF88" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
     </linearGradient>
-    <filter id="tradeGlow3" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#00FF88" flood-opacity="0.5"/>
+
+    <!-- Neon Glow Filters -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="14" flood-color="#00FF88" flood-opacity="0.75" />
+    </filter>
+    <filter id="indigoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="16" flood-color="#6366F1" flood-opacity="0.65" />
     </filter>
   </defs>
 
-  <!-- Rounded Dark Tile Background -->
-  <rect width="512" height="512" rx="128" fill="url(#tileGrad3)"/>
-  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="#22C55E" stroke-width="8" stroke-opacity="0.4"/>
+  <!-- Squircle Base Frame -->
+  <rect width="512" height="512" rx="128" fill="url(#jsBg)" />
+  <rect width="502" height="502" x="5" y="5" rx="123" fill="none" stroke="url(#quantIndigo)" stroke-width="10" stroke-opacity="0.55" />
 
-  <!-- Grid lines (subtle) -->
-  <line x1="80" y1="200" x2="432" y2="200" stroke="#1F2E28" stroke-width="4" stroke-dasharray="8 8"/>
-  <line x1="80" y1="320" x2="432" y2="320" stroke="#1F2E28" stroke-width="4" stroke-dasharray="8 8"/>
+  <!-- Subtle Quant Order-Book Matrix Grid -->
+  <line x1="80" y1="180" x2="432" y2="180" stroke="#1E293B" stroke-width="3" stroke-dasharray="8 8" opacity="0.6" />
+  <line x1="80" y1="280" x2="432" y2="280" stroke="#1E293B" stroke-width="3" stroke-dasharray="8 8" opacity="0.6" />
+  <line x1="80" y1="380" x2="432" y2="380" stroke="#1E293B" stroke-width="3" stroke-dasharray="8 8" opacity="0.6" />
 
-  <!-- Candlestick 1 (Ascending Small) -->
-  <line x1="148" y1="270" x2="148" y2="380" stroke="#22C55E" stroke-width="6"/>
-  <rect x="130" y="295" width="36" height="60" rx="8" fill="url(#greenCandle3)"/>
+  <!-- Candlestick 1: Ascending Base -->
+  <line x1="130" y1="290" x2="130" y2="410" stroke="#00FF88" stroke-width="6" stroke-linecap="round" />
+  <rect x="114" y="320" width="32" height="60" rx="8" fill="url(#breakoutCyan)" />
 
-  <!-- Candlestick 2 (Ascending Mid) -->
-  <line x1="228" y1="200" x2="228" y2="330" stroke="#22C55E" stroke-width="6"/>
-  <rect x="210" y="225" width="36" height="75" rx="8" fill="url(#greenCandle3)"/>
+  <!-- Candlestick 2: Momentum Surge -->
+  <line x1="210" y1="210" x2="210" y2="350" stroke="#00FF88" stroke-width="6" stroke-linecap="round" />
+  <rect x="194" y="240" width="32" height="80" rx="8" fill="url(#breakoutCyan)" />
 
-  <!-- Candlestick 3 (Ascending High) -->
-  <line x1="308" y1="130" x2="308" y2="270" stroke="#00FF88" stroke-width="6"/>
-  <rect x="290" y="155" width="36" height="85" rx="8" fill="url(#greenCandle3)"/>
+  <!-- Candlestick 3: High-Frequency Climax -->
+  <line x1="290" y1="130" x2="290" y2="290" stroke="#38BDF8" stroke-width="6" stroke-linecap="round" />
+  <rect x="274" y="160" width="32" height="95" rx="8" fill="url(#breakoutCyan)" filter="url(#cyanGlow)" />
 
-  <!-- Ascending Growth Vector & Arrow -->
-  <path d="M100 370 L200 280 L280 210 L395 110" fill="none" stroke="url(#arrowGrad3)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" filter="url(#tradeGlow3)"/>
-  <polygon points="380,85 425,100 405,145" fill="#00FF88" filter="url(#tradeGlow3)"/>
+  <!-- High-Frequency Exponential Growth Vector Curve -->
+  <path d="M85 410 C160 380 230 290 385 115" 
+        fill="none" 
+        stroke="url(#breakoutCyan)" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#cyanGlow)" />
+
+  <!-- Dynamic Arrowhead / Orca Fin Apex -->
+  <polygon points="370,85 425,100 405,150" fill="#00FF88" filter="url(#cyanGlow)" />
+
+  <!-- Stylized Geometric "JS" Monogram in Top Left Corner -->
+  <g filter="url(#indigoGlow)">
+    <!-- Letter J -->
+    <path d="M375 290 V375 C375 405 350 425 320 425 C295 425 280 415 270 405" 
+          fill="none" 
+          stroke="#FFFFFF" 
+          stroke-width="18" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+    <!-- Letter S -->
+    <path d="M440 315 C425 295 390 295 385 315 C380 340 435 345 435 375 C435 410 395 420 375 405" 
+          fill="none" 
+          stroke="url(#quantIndigo)" 
+          stroke-width="18" 
+          stroke-linecap="round" />
+  </g>
+
+  <!-- Speed Pulse Blips -->
+  <circle cx="385" cy="115" r="8" fill="#FFFFFF" filter="url(#cyanGlow)" />
+  <circle cx="85" cy="410" r="6" fill="#00FF88" />
 </svg>

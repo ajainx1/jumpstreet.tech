@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   title: 'Orca6™ — Automated Trading Platform | JumpStreet Tech',
   description: 'Orca6 automated trading indicator platform with sub-millisecond execution latency, dedicated Equinix LD4 cloud VPS hosting, and 24/7 VIP support.',
   manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
   metadataBase: new URL("https://jumpstreet.tech"),
   alternates: {
     canonical: "https://jumpstreet.tech",
