@@ -162,12 +162,27 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans relative text-slate-100 bg-[#020817] overflow-x-hidden selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-500 pb-20 lg:pb-0">
-      {/* ── Dynamic iCloud Mesh Background ── */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* ── High-Performance Hardware-Accelerated Mesh Background ── */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 bg-[#020817]" />
-        <motion.div animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-25 bg-emerald-600 mix-blend-screen" />
-        <motion.div animate={{ x: [0, -50, 0], y: [0, -30, 0], scale: [1, 1.2, 1] }} transition={{ duration: 35, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[150px] opacity-20 bg-cyan-600 mix-blend-screen" />
-        <div className="absolute inset-0 backdrop-blur-[90px]" />
+        <div 
+          className="absolute top-[-5%] left-[-5%] w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(16,185,129,0.45) 0%, rgba(6,182,212,0.15) 50%, transparent 70%)",
+            filter: "blur(60px)",
+            transform: "translate3d(0, 0, 0)",
+            willChange: "transform"
+          }}
+        />
+        <div 
+          className="absolute bottom-[-5%] right-[-5%] w-[550px] h-[550px] rounded-full opacity-15 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(6,182,212,0.45) 0%, rgba(99,102,241,0.15) 50%, transparent 70%)",
+            filter: "blur(60px)",
+            transform: "translate3d(0, 0, 0)",
+            willChange: "transform"
+          }}
+        />
       </div>
 
       {/* ── Ticker bar ── */}

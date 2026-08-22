@@ -1,27 +1,36 @@
 "use client";
 import { useEffect } from 'react';
 
-// Optional Telegram credentials via env or direct config
 const TELEGRAM_BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN || "";
 const TELEGRAM_CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID || "";
 
 export default function TelegramVisitorLogger() {
   useEffect(() => {
-    // Log once per browser session per path
+    if (typeof window === "undefined") return;
+
     const sessionKey = "tg_visitor_logged_" + window.location.pathname;
     if (sessionStorage.getItem(sessionKey)) return;
 
     const logVisitor = async () => {
       try {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        sessionStorage.setItem(sessionKey, "true");
+
+        // Non-blocking fetch with strict 1.2s timeout
         let ipData: Record<string, any> = {};
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
+
         try {
-          const res = await fetch("https://ipapi.co/json/", { cache: "no-store" });
+          const res = await fetch("https://ipapi.co/json/", { 
+            signal: controller.signal, 
+            cache: "no-store" 
+          });
+          clearTimeout(timeoutId);
           if (res.ok) {
             ipData = await res.json();
           }
         } catch {
-          // Fallback if IP API is blocked or rate limited
+          clearTimeout(timeoutId);
         }
 
         const userAgent = navigator.userAgent;
@@ -41,13 +50,11 @@ export default function TelegramVisitorLogger() {
           `⏰ <b>Timestamp:</b> ${timestamp} IST\n` +
           `⚙️ <b>User Agent:</b> <code>${userAgent.slice(0, 90)}...</code>`;
 
-        sessionStorage.setItem(sessionKey, "true");
-
         const token = TELEGRAM_BOT_TOKEN;
         const chatId = TELEGRAM_CHAT_ID;
 
         if (token && chatId) {
-          await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -55,14 +62,18 @@ export default function TelegramVisitorLogger() {
               text: message,
               parse_mode: "HTML",
             }),
-          });
+          }).catch(() => {});
         }
       } catch (err) {
-        console.error("Telegram visitor logger notice:", err);
+        console.debug("Telegram visitor logger notice:", err);
       }
     };
 
-    logVisitor();
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(logVisitor, { timeout: 3000 });
+    } else {
+      setTimeout(logVisitor, 2500);
+    }
   }, []);
 
   return null;

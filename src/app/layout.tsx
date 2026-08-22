@@ -119,14 +119,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <Script
           id="sw-register"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js').catch(function(err){}); }); }`
           }}
         />
         <Script
           id="adsbygoogle-init"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6072468142870937"
         />
