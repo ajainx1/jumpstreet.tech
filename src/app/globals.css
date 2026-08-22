@@ -8,42 +8,30 @@
     --font-title: "Outfit", "Inter", sans-serif;
     --font-mono: "JetBrains Mono", ui-monospace, monospace;
     
-    /* NOC Light Theme (Default) */
-    --bg: #f8fafc;
-    --bg2: #ffffff;
-    --card: #ffffff;
-    --card2: #f1f5f9;
-    --fg: #0f172a;
-    --primary: #0f4c81;
-    --primary-dim: rgba(15, 76, 129, 0.1);
-    --primary-glow: rgba(15, 76, 129, 0.25);
-    --amber: #f97316;
-    --amber-dim: rgba(249, 115, 22, 0.12);
-    --blue: #38bdf8;
-    --red: #ef4444;
-    --border: rgba(15, 76, 129, 0.15);
-    --border2: rgba(15, 76, 129, 0.28);
-    --muted: #475569;
-  }
-
-  body.dark-mode, .dark {
-    --bg: #0b0f19;
-    --bg2: #161e2f;
-    --card: #161e2f;
-    --card2: #1f293d;
+    /* Dark Obsidian / Quant Palette */
+    --bg: #020817;
+    --bg2: #070e24;
+    --card: #0b1329;
+    --card2: #111c38;
     --fg: #f8fafc;
-    --primary: #38bdf8; /* Sky Blue primary */
+    --primary: #38bdf8;
     --primary-dim: rgba(56, 189, 248, 0.1);
     --primary-glow: rgba(56, 189, 248, 0.25);
+    --emerald: #10b981;
+    --emerald-glow: rgba(16, 185, 129, 0.35);
+    --indigo: #6366f1;
+    --indigo-glow: rgba(99, 102, 241, 0.35);
+    --amber: #f59e0b;
     --border: rgba(56, 189, 248, 0.15);
-    --border2: rgba(56, 189, 248, 0.28);
-    --muted: #cbd5e1; /* slate-300 for better WCAG contrast */
+    --border2: rgba(16, 185, 129, 0.25);
+    --muted: #94a3b8;
   }
 
   body {
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--font-sans);
+    overflow-x: hidden;
   }
 
   :focus-visible {
@@ -52,12 +40,21 @@
   }
 }
 
+/* Background Cyber Matrix Grid */
+.bg-quant-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Pulse Keyframes */
 @keyframes pulse-glow-primary {
   0%, 100% {
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.2), 0 0 5px rgba(56, 189, 248, 0.1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 10px rgba(56, 189, 248, 0.2);
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.55), 0 0 12px rgba(56, 189, 248, 0.25);
   }
 }
 
@@ -66,7 +63,7 @@
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.2), 0 0 5px rgba(16, 185, 129, 0.1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 10px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.55), 0 0 12px rgba(16, 185, 129, 0.25);
   }
 }
 
@@ -102,6 +99,22 @@
 .btn-shimmer:hover::after {
   left: 150%;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Minimal Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(2, 8, 23, 0.7);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
 }
 
 /* Blinking Cursor for Terminal icon */

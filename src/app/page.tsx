@@ -15,6 +15,7 @@ import VmConfigurator from '@/components/js/VmConfigurator';
 import ProductCatalog from '@/components/js/ProductCatalog';
 import PaymentPortal from '@/components/js/PaymentPortal';
 import AdSenseBanner from '@/components/js/AdSenseBanner';
+import ArbitrageCalculator from '@/components/js/ArbitrageCalculator';
 
 /* ══════════════════════════════
    HOOKS
@@ -368,8 +369,39 @@ function AppContent() {
                   </motion.div>
                 ))}
               </div>
+
+              {/* Global Exchange Sub-Millisecond Telemetry Bar */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono mb-3">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 flex items-center gap-1.5">
+                    <Radio size={14} className="text-emerald-400 animate-pulse" />
+                    <span>Edge Cross-Connect Direct Feeds</span>
+                  </span>
+                  <span className="text-[10px] text-emerald-400 font-bold">24x7 FPGA Low-Latency Route</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs font-mono">
+                  {[
+                    { location: "Equinix LD4 (London)", ping: "0.8ms", status: "Optimal", color: "text-emerald-400" },
+                    { location: "Equinix NY4 (New York)", ping: "1.1ms", status: "Optimal", color: "text-cyan-400" },
+                    { location: "Equinix TY3 (Tokyo)", ping: "1.4ms", status: "Direct", color: "text-indigo-400" },
+                    { location: "Mumbai Financial SDC", ping: "0.4ms", status: "Ultra", color: "text-emerald-300" },
+                  ].map((node, idx) => (
+                    <div key={idx} className="p-3 rounded-xl bg-slate-950/70 border border-white/10 flex flex-col justify-between">
+                      <span className="text-[9px] text-slate-400 truncate">{node.location}</span>
+                      <div className="flex items-center justify-between mt-1">
+                        <span className={`font-bold ${node.color}`}>{node.ping}</span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-white/5 text-slate-400">{node.status}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </motion.div>
+
+          {/* ── Interactive Yield & Arbitrage Simulator ── */}
+          <ArbitrageCalculator onSelectBundle={() => switchTab('store')} />
 
           {/* ── Google AdSense Unit ── */}
           <AdSenseBanner refreshKey={activeTab} />
