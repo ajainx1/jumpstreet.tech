@@ -16,7 +16,7 @@ export default function TelegramVisitorLogger() {
         sessionStorage.setItem(sessionKey, "true");
 
         // Non-blocking fetch with strict 1.2s timeout
-        let ipData: Record<string, any> = {};
+        let ipData: Record<string, string | undefined> = {};
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 1200);
 
@@ -70,7 +70,7 @@ export default function TelegramVisitorLogger() {
     };
 
     if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(logVisitor, { timeout: 3000 });
+      window.requestIdleCallback(logVisitor, { timeout: 3000 });
     } else {
       setTimeout(logVisitor, 2500);
     }

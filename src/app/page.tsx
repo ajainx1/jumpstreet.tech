@@ -531,7 +531,7 @@ function AppContent() {
                             {[
                               { label: 'User', primary: ord.email, secondary: ord.telegramUsername },
                               { label: 'UTR / Reference', primary: ord.utrNo, secondary: `via ${ord.paymentMethod}` },
-                              { label: 'Total Paid', primary: `₹${ord.amountPaid.toLocaleString('en-IN')}`, secondary: `~$${(ord.amountPaid/85).toFixed(1)} USD`, big: true },
+                              { label: 'Total Paid', primary: `₹${(Number(ord.amountPaid || 0)).toLocaleString('en-IN')}`, secondary: `~$${((Number(ord.amountPaid || 0))/85).toFixed(1)} USD`, big: true },
                             ].map((row, j) => (
                               <div key={j}>
                                 <span className="block text-[10px] uppercase tracking-widest font-mono font-bold mb-1.5 text-slate-400">{row.label}</span>

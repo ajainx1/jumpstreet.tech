@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Calculator, Zap, TrendingUp, ShieldCheck, ArrowRight, Activity, Cpu } from 'lucide-react';
+import { Calculator, ArrowRight, Activity } from 'lucide-react';
 
 export default function ArbitrageCalculator({ onSelectBundle }: { onSelectBundle?: () => void }) {
   const [capital, setCapital] = useState<number>(50000);
@@ -9,8 +8,8 @@ export default function ArbitrageCalculator({ onSelectBundle }: { onSelectBundle
   const [holdingPeriod, setHoldingPeriod] = useState<number>(3); // months
 
   const metrics = useMemo(() => {
-    let monthlyRoiRate = 0.08; // 8% conservative
-    let slippageReduction = 94; // %
+    let monthlyRoiRate = 0.08; 
+    let slippageReduction = 94; 
     let latencyAdvantage = "0.8ms LD4";
 
     if (strategy === 'conservative') {
@@ -28,83 +27,81 @@ export default function ArbitrageCalculator({ onSelectBundle }: { onSelectBundle
     }
 
     const estimatedMonthlyProfit = Math.round(capital * monthlyRoiRate);
-    const estimatedTotalGain = Math.round(capital * Math.pow(1 + monthlyRoiRate, holdingPeriod) - capital);
+    const estimatedTotalGain = Math.round(estimatedMonthlyProfit * holdingPeriod);
     const slippageSaved = Math.round(capital * 0.028 * holdingPeriod);
+    const totalYieldPercentage = ((estimatedTotalGain / capital) * 100).toFixed(1);
 
     return {
       monthlyRoiRate: (monthlyRoiRate * 100).toFixed(1),
+      slippageReduction,
+      latencyAdvantage,
       estimatedMonthlyProfit,
       estimatedTotalGain,
       slippageSaved,
-      slippageReduction,
-      latencyAdvantage,
+      totalYieldPercentage
     };
   }, [capital, strategy, holdingPeriod]);
 
   return (
-    <div className="p-6 sm:p-8 rounded-[28px] bg-slate-900/80 border border-emerald-500/25 backdrop-blur-2xl shadow-2xl space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
+    <div className="w-full bg-gradient-to-br from-slate-900/90 via-slate-950/95 to-black border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <div className="p-3 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-sm">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
             <Calculator size={24} />
           </div>
           <div>
-            <h3 className="text-lg sm:text-xl font-black font-title text-white flex items-center gap-2">
-              <span>Orca6™ Yield &amp; Latency Simulator</span>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                PROJECTION
-              </span>
+            <h3 className="text-lg sm:text-xl font-bold font-title text-white">
+              Institutional Yield & Latency Estimator
             </h3>
-            <p className="text-xs text-slate-400">Estimate automated algorithmic returns &amp; slippage savings</p>
+            <p className="text-xs font-mono text-slate-400">
+              Calculate algorithmic capital growth powered by LD4/NY4 bare metal colocation
+            </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-400 bg-slate-950/80 px-3 py-1.5 rounded-xl border border-white/10">
+
+        <div className="flex items-center gap-2 self-start sm:self-auto px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
           <Activity size={14} className="animate-pulse" />
-          <span>Equinix LD4 Sub-Millisecond</span>
+          <span>Real-time Telemetry Modeling</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        
-        {/* Controls */}
-        <div className="lg:col-span-7 space-y-5">
-          {/* Capital Slider */}
-          <div className="space-y-2">
-            <div className="flex justify-between items-center text-xs font-mono font-bold">
-              <span className="text-slate-300">Trading Capital Base:</span>
-              <span className="text-emerald-400 text-base font-title font-black">
-                ₹{capital.toLocaleString('en-IN')} <span className="text-xs text-slate-400 font-mono">(~${Math.round(capital / 85)} USD)</span>
-              </span>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6 items-start">
+        <div className="lg:col-span-6 space-y-6">
+          <div>
+            <div className="flex justify-between items-center text-xs font-mono mb-2">
+              <span className="text-slate-300 font-semibold">Deployment Capital (USDT / USD)</span>
+              <span className="text-emerald-400 font-bold text-sm font-mono">${capital.toLocaleString()}</span>
             </div>
             <input
               type="range"
-              min={10000}
-              max={1000000}
-              step={10000}
+              min={5000}
+              max={500000}
+              step={5000}
               value={capital}
               onChange={(e) => setCapital(Number(e.target.value))}
-              className="w-full h-2 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-emerald-400 border border-white/10"
+              className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
             />
-            <div className="flex justify-between text-[10px] font-mono text-slate-500">
-              <span>₹10,000 (Min)</span>
-              <span>₹5,00,000</span>
-              <span>₹10,00,000 (Apex)</span>
+            <div className="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+              <span>$5,000</span>
+              <span>$250,000</span>
+              <span>$500,000</span>
             </div>
           </div>
 
-          {/* Strategy Mode Buttons */}
-          <div className="space-y-2">
-            <label className="text-xs font-mono font-bold text-slate-300">Execution Frequency &amp; Risk Mode:</label>
+          <div>
+            <label className="block text-xs font-mono text-slate-300 font-semibold mb-2">
+              Arbitrage Engine Profile
+            </label>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { id: 'conservative', label: 'Conservative', roi: '7.5%/mo', desc: 'Low Drawdown' },
-                { id: 'balanced', label: 'Balanced', roi: '14.5%/mo', desc: 'Standard Alpha' },
-                { id: 'hft_apex', label: 'HFT Apex', roi: '23.5%/mo', desc: 'Ultra-High Frequency' }
+                { id: 'conservative' as const, label: 'Conservative', roi: '7.5%/mo', desc: 'Low Drawdown' },
+                { id: 'balanced' as const, label: 'Balanced', roi: '14.5%/mo', desc: 'Standard Alpha' },
+                { id: 'hft_apex' as const, label: 'HFT Apex', roi: '23.5%/mo', desc: 'Ultra-High Frequency' }
               ].map((s) => (
                 <button
                   key={s.id}
                   type="button"
-                  onClick={() => setStrategy(s.id as any)}
+                  onClick={() => setStrategy(s.id)}
                   className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                     strategy === s.id
                       ? 'bg-emerald-500/20 border-emerald-400 text-white shadow-md'
