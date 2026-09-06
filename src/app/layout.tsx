@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
     ],
-    shortcut: "/favicon.svg",
+    shortcut: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   metadataBase: new URL("https://jumpstreet.tech"),
