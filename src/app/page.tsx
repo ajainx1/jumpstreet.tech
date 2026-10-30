@@ -634,7 +634,7 @@ function AppContent() {
               </p>
             </div>
             <Link
-              href="https://wa.me/919897577007"
+              href="mailto:contact@jumpstreet.tech"
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full py-4 mt-4 text-xs font-bold tracking-widest uppercase rounded-full transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 shadow-md hover:shadow-xl hover:from-emerald-400 hover:to-teal-400 hover:-translate-y-0.5 group"
