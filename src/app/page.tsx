@@ -42,7 +42,7 @@ function useScrollTop() {
 
 const TICKER_ITEMS = [
   '🚀 Orca6™ automated trading indicator package now live',
-  '📞 24/7 VIP Support Active: +91 98975 77 007',
+  '📞 24/7 VIP Support Active: contact@jumpstreet.tech',
   '⚡ Sub-millisecond Windows Cloud VMs available 24/7',
   '🤖 Automated watchdogs pre-installed on all VMs',
   '💳 UPI, GPay & International Card payments accepted',
